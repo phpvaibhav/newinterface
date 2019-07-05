@@ -2,12 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_model extends CI_Model {
-var $userPath    = base_url().USER_AVATAR_PATH;
-      var  $userDefault = base_url().USER_DEFAULT_AVATAR;
+        var $userPath    ='uploads/users/';
+        var  $userDefault = 'backend_assets/img/avatars/1.png';
     //var $table , $column_order, $column_search , $order =  '';
     var $table = 'users';
     var $column_order = array('id','fullName','email','userType','contactNumber'); //set column field database for datatable orderable
-    var $column_sel = array('*','(case when (status = 0) 
+    var $column_sel = array('id','fullName','email','userType','contactNumber','(case when (status = 0) 
         THEN "Inactive" when (status = 1) 
         THEN "Active" ELSE
         "Unknown" 
@@ -17,9 +17,10 @@ var $userPath    = base_url().USER_AVATAR_PATH;
         THEN "Employee" ELSE
         "Unknown" 
         END) as userRole','(case when (profileImage = "") 
-        THEN "'.$userDefault.'" ELSE
-        concat("'.$userPath.'",profileImage) 
+        THEN "backend_assets/img/avatars/1.png" ELSE
+        concat("uploads/users/",profileImage) 
         END) as profileImage'); //set column field database for datatable orderable
+
     var $column_search = array('fullName','email'); //set column field database for datatable searchable 
     var $order = array('id' => 'desc');  // default order
     var $where = array();
@@ -37,7 +38,7 @@ var $userPath    = base_url().USER_AVATAR_PATH;
     {
         $sel_fields = array_filter($this->column_sel); 
         $this->db->select($sel_fields);
-        $this->db->from($table);
+        $this->db->from($this->table);
         $i = 0;
         foreach ($this->column_search as $emp) // loop column 
         {
@@ -122,7 +123,7 @@ var $userPath    = base_url().USER_AVATAR_PATH;
 
     public function userDetails($data){
     	$this->db->select('*');
-    	$this->db->from($table);
+    	$this->db->from($this->table);
     	$this->db->where(array('id'=>$data['id']));
     	$query = $this->db->get();
     	return $query->row();

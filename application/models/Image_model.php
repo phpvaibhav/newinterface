@@ -190,6 +190,67 @@ class Image_model extends CI_Model{
         }
 
     } // End Function
+  	function updateGallery($fileName,$folder,$hieght=250,$width=250)
+	{
+		  	$this->make_dirs($folder);
 
+ 
+        
+       	$realpath = 'uploads/';
+        $allowed_types = "gif|jpg|png|jpeg"; 	
+      
+       
+			$storedFile 		= array();
+			$allowed_types 		= "gif|jpg|png|jpeg"; 
+			$files 				= $_FILES[$fileName];
+			$number_of_files 	= sizeof($_FILES[$fileName]['tmp_name']);
+
+			// we first load the upload library
+			$this->load->library('upload');
+			// next we pass the upload path for the images
+			
+        
+        $configG = array(
+                'upload_path'       => $realpath.$folder,
+                'allowed_types'     => $allowed_types,
+                'max_size'          => "10240",   // File size limitation, initially w'll set to 10mb (Can be changed)
+                'max_height'        => "4000", // max height in px
+                'max_width'         => "4000", // max width in px
+            //    'min_width'         => "200", // min width in px
+             //   'min_height'        => "200", // min height in px
+                'encrypt_name'         => TRUE,
+                'overwrite'	    => FALSE,
+                'remove_spaces'	    => TRUE,
+                'quality'           => '100%',
+            );
+			// now, taking into account that there can be more than one file, for each file we will have to do the upload
+			for ($i = 0; $i < $number_of_files; $i++)
+			{
+				$_FILES[$fileName]['name'] 		= $files['name'][$i];
+				$_FILES[$fileName]['type'] 		= $files['type'][$i];
+				$_FILES[$fileName]['tmp_name'] 	= $files['tmp_name'][$i];
+				$_FILES[$fileName]['error'] 	= $files['error'][$i];
+				$_FILES[$fileName]['size'] 		= $files['size'][$i];
+
+				//now we initialize the upload library
+				$this->upload->initialize($configG);
+				if ($this->upload->do_upload($fileName))
+				{
+					$savedFile = $this->upload->data();//upload the image
+					$storedFile[$i]['name'] = $savedFile['file_name'];
+					$storedFile[$i]['type'] = $savedFile['file_type'];
+				
+
+
+				}
+				else
+				{
+					$storedFile[$i]['error'] = $this->upload->display_errors();
+				}
+			} // END OF FOR LOOP
+		 
+		return $storedFile;
+		  
+	}//FUnction
 
 }// End of class Image_model

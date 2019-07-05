@@ -23,7 +23,7 @@ class Users extends Common_Service_Controller{
         $no++;
         $row = array();
         $row[] = $no;
-        $row[] = '<img src='.make_user_img_url($serData->profileImage).' alt="user profile" width="65%">';
+        $row[] = '<img src='.base_url($serData->profileImage).' alt="user profile" width="65%">';
         $row[] = display_placeholder_text($serData->fullName); 
         $row[] = display_placeholder_text($serData->email); 
         $row[] = display_placeholder_text($serData->contactNumber); 
@@ -60,7 +60,7 @@ class Users extends Common_Service_Controller{
     function changeStatus_post(){
         $userId  = decoding($this->post('use'));
     
-        $where = array('serviceId'=>$serviceId);
+        $where = array('id'=>$userId);
          $dataExist=$this->common_model->is_data_exists('users',$where);
         if($dataExist){
             $status = $dataExist->status ?0:1;

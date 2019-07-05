@@ -12,6 +12,12 @@ class Common_model extends CI_Model {
         $this->db->insert($table, $dataInsert);
         return $this->db->insert_id();
     }
+/* INSERT RECORD FROM batch TABLE */
+    function insertBatch($table, $dataInsert) {
+        $insert=$this->db->insert_batch($table, $dataInsert);
+       
+        return $insert;
+    }
 
     /* UPDATE RECORD FROM SINGLE TABLE */
     function updateFields($table, $data, $where){

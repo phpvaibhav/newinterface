@@ -199,7 +199,7 @@
 
         <ul>
           <li>
-            <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Services</span></a>
+            <a href="#" title="Services"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Services</span></a>
             <ul>
               <li>
                 <a href="<?php echo base_url().'service'; ?>" title="Services"><span class="menu-item-parent">
@@ -213,11 +213,11 @@
            
             </ul> 
           </li>
-       
-       <!--    <li>
-            <a href="inbox.html"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Outlook</span> <span class="badge pull-right inbox-badge margin-right-13">14</span></a>
-          </li> -->
-      
+          <?php if(isset($user['userType'])&& $user['userType']==1): ?>
+      <li>
+            <a href="<?php echo base_url().'users'; ?>"><i class="fa fa-lg fa-fw fa-users"></i> <span class="menu-item-parent">Users</span></a>
+          </li> 
+        <?php endif; ?>
         </ul>
       </nav>
       

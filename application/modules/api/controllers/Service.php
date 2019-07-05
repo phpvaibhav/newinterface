@@ -35,29 +35,45 @@ class Service extends Common_Service_Controller{
         	 $data_val['userId'] = $userId;
           
             // profile pic upload
-            $this->load->model('Image_model');
+            $this->load->model('image_model');
           
-            $image = array(); $serviceImage = '';
+           $serviceImage = $images= array();
+        //   pr($_FILES);
             if (!empty($_FILES['serviceImage']['name'])) {
                 $folder     = 'service';
-                $image      = $this->Image_model->upload_image('serviceImage',$folder); //upload media of Seller
-                
+                $images      = $this->image_model->updateGallery('serviceImage',$folder); //upload media of Seller
+             
                 //check for error
-                if(array_key_exists("error",$image) && !empty($image['error'])){
+            /*    if(array_key_exists("error",$image) && !empty($image['error'])){
                     $response = array('status' => FAIL, 'message' => strip_tags($image['error'].'(In service Image)'));
                    $this->response($response);
-                }
+                }*/
                 
                 //check for image name if present
-                if(array_key_exists("image_name",$image)):
+               /* if(array_key_exists("image_name",$image)):
                     $serviceImage = $image['image_name'];
-                endif;
+                endif;*/
             
             }
-            $image_data['profileImage']           =   $serviceImage;
+           // $image_data['profileImage']           =   $serviceImage;
 
             $result = $this->common_model->insertData('service',$data_val);
             if($result){
+                
+                  if(!empty($images)):
+                    $j=0;
+                    for ($i=0; $i <sizeof($images) ; $i++) { 
+                        if(isset($images[$i]['name']) && isset($images[$i]['type'])):
+                            $serviceImage[$j]['image'] =  $images[$i]['name'];
+                            $serviceImage[$j]['serviceId'] =  $result;
+                            $j++;
+                        endif;
+                    }
+                    if(!empty($serviceImage)):
+                     
+                        $this->common_model->insertBatch('images',$serviceImage);
+                    endif;
+               endif;//images
         	  	$response = array('status'=>SUCCESS,'message'=>ResponseMessages::getStatusCodeMessage(122));
          
              }else{

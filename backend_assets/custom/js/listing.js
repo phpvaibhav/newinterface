@@ -87,8 +87,8 @@ function(isConfirm) {
     /*ajax*/
     $.ajax({
                  type: "POST",
-                 url: base_url+'api/users/changeStatus',
-                 data: {use:$(e).data('useid')},
+                 url: base_url+'api/service/changeStatus',
+                 data: {srv:$(e).data('serid'),srs:$(e).data('sid')},
                   cache: false,
            beforeSend: function() {
           
@@ -99,7 +99,7 @@ function(isConfirm) {
                    
                   
                    swal("Success", "Your process  has been successfully done.", "success");
-                 $('#user_list').DataTable().ajax.reload();
+                 $('#service_list').DataTable().ajax.reload();
                   }else{
                     toastr.error(res.message, 'Alert!', {timeOut: 5000});
                   }
@@ -132,8 +132,8 @@ function(isConfirm) {
     /*ajax*/
     $.ajax({
                  type: "POST",
-                 url: base_url+'api/service/changeStatus',
-                 data: {srv:$(e).data('serid'),srs:$(e).data('sid')},
+                 url: base_url+'api/users/changeStatus',
+                 data: {use:$(e).data('useid') },
                   cache: false,
            beforeSend: function() {
           
@@ -144,7 +144,7 @@ function(isConfirm) {
                    
                   
                    swal("Success", "Your process  has been successfully done.", "success");
-                 $('#service_list').DataTable().ajax.reload();
+                 $('#user_list').DataTable().ajax.reload();
                   }else{
                     toastr.error(res.message, 'Alert!', {timeOut: 5000});
                   }

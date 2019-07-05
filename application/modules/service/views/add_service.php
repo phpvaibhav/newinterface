@@ -6,7 +6,7 @@
 		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
 			<div class="well no-padding">
 
-			<form method="post" action="addService" id="smart-form-service" class="smart-form client-form">
+			<form method="post" action="addService" id="smart-form-service" class="smart-form client-form" enctype="multipart/form-data" novalidate="">
 			<header>
 				Service
 			</header>
@@ -25,30 +25,30 @@
 				</section>
 				<section>
 					<label class="input">
-						<input type="text" name="serialNumber" placeholder="Serial Number">
+						<input type="text" name="serialNumber" placeholder="Serial Number" maxlength="20" size="20" class="number-only">
 						</label>
 				</section>
 				<section>
 					<label class="input">
-						<input type="text" name="purchaseDate" placeholder="Purchase Date"
-						placeholder="Filter Date" class=" datepicker hasDatepicker" data-dateformat="yy/mm/dd">
+						<input type="text" id="purchaseDate" name="purchaseDate" placeholder="Purchase Date"
+						class="datepicker purchaseDate" readonly>
 						</label>
 				</section>
 				<section>
 					<label class="input">
-						<input type="text" name="contactNumber" placeholder="Contact Number">
+						<input type="text" name="contactNumber" placeholder="Contact Number" maxlength="13" size="13"  class="number-only">
 						</label>
 				</section>
 				<section>
 					<label class="textarea">
-						<textarea name="comment" placeholder="Comment"></textarea>
+						<textarea name="comment" placeholder="Comment" maxlength="500"></textarea>
 						</label>
 				</section>
 
 				<section>
 				<!-- <label class="label">Image</label> -->
 				<div class="input input-file">
-				<span class="button"><input type="file" id="file" onchange="this.parentNode.nextSibling.value = this.value">Browse</span><input type="text" readonly="">
+				<span class="button"><input type="file" name="serviceImage[]" id="file" onchange="this.parentNode.nextSibling.value = this.value" accept="image/*" size="10" multiple="multiple">Browse</span><input type="text" readonly="">
 				</div>
 				
 				</section>

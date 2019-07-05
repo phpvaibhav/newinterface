@@ -3,6 +3,30 @@
   alert("DFF");
     $('#preloader').addClass('prloadHide');
 });*/
+$(function(){
+
+  $('.number-only').keypress(function(e) {
+  if(isNaN(this.value+""+String.fromCharCode(e.charCode))) return false;
+  })
+  .on("cut copy paste",function(e){
+  e.preventDefault();
+  });
+   $(".floatNumeric").on("keypress keyup blur",function (event) {
+            //this.value = this.value.replace(/[^0-9\.]/g,'');
+     $(this).val($(this).val().replace(/[^0-9\.]/g,''));
+            if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+                event.preventDefault();
+            }
+});
+   //date 
+   $( "#purchaseDate" ).datepicker({  
+      dateFormat: 'mm/dd/yyyy'
+    });
+   
+   //date 
+
+
+});
  //rember me
  $(function() {
   if (localStorage.chkbx && localStorage.chkbx != '') {
@@ -302,19 +326,59 @@
           },
 
           // Ajax form submition
-          submitHandler : function(form) {
-               $('#submit').prop('disabled', true);
-            $.ajax({
-                 type: "POST",
-                 url: base_url+'api/service/'+$(form).attr('action'),
-                 headers: { 'authToken': authToken },
-                 data: $(form).serialize(),
-                  cache: false,
-           beforeSend: function() {
+        //  submitHandler : function(form) {
+              // $('#submit').prop('disabled', true);
+               //~ var form_data = $(form).serialize();
+ 
+            //~ $.ajax({
+                 //~ type: "POST",
+                 //~ url: base_url+'api/service/'+$(form).attr('action'),
+                 //~ headers: { 'authToken': authToken },
+                 //~ data: form_data,
+                  //~ cache: false,
+         //~ //          processData: false,
+       //~ // contentType: false,
+           //~ beforeSend: function() {
           
-                    $('#submit').prop('disabled', true);  
-                  },     
-                 success: function (res) {
+                    //~ $('#submit').prop('disabled', true);  
+                  //~ },     
+                 //~ success: function (res) {
+                   //~ $('#submit').prop('disabled', false); 
+                  //~ if(res.status=='success'){
+                   //~ toastr.success(res.message, 'Success', {timeOut: 5000});
+                   //~ window.location = base_url+'service';
+                  //~ }else{
+                    //~ toastr.error(res.message, 'Alert!', {timeOut: 5000});
+                  //~ }
+                  
+                    
+                 //~ }
+             //~ });
+            // return false; // required to block normal submit since you used ajax
+         // },
+
+          // Do not change code below
+          errorPlacement : function(error, element) {
+            error.insertAfter(element.parent());
+          }
+        });
+        //fromsubmit
+        $(document).on('submit', "#smart-form-service", function (event) {
+
+    event.preventDefault();
+    var formData = new FormData(this);
+    $.ajax({
+        type: "POST",
+        url: base_url+'api/service/'+$(this).attr('action'),
+        headers: { 'authToken': authToken },
+        data: formData, //only input
+        processData: false,
+        contentType: false,
+        cache: false,
+            beforeSend: function () {
+            $('#submit').prop('disabled', true);
+            },
+          success: function (res) {
                    $('#submit').prop('disabled', false); 
                   if(res.status=='success'){
                    toastr.success(res.message, 'Success', {timeOut: 5000});
@@ -325,15 +389,10 @@
                   
                     
                  }
-             });
-             return false; // required to block normal submit since you used ajax
-          },
+    });
 
-          // Do not change code below
-          errorPlacement : function(error, element) {
-            error.insertAfter(element.parent());
-          }
-        });
+});
+        //fromsubmit
 
       });
 

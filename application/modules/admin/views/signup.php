@@ -24,7 +24,7 @@
 				</section>
 				<section>
 					<label class="input"> <i class="icon-append fa fa-phone"></i>
-					<input type="text" name="contact" placeholder="Contact">
+					<input type="text" name="contact" maxlength="13" size="13" class="number-only" placeholder="Contact">
 					<b class="tooltip tooltip-bottom-right">Needed to enter the contact number</b> </label>
 				</section>
 
