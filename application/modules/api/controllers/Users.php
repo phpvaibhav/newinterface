@@ -13,7 +13,7 @@ class Users extends Common_Service_Controller{
         $userType = $this->authData->userType;
         $this->load->helper('text');
         $this->load->model('user_model');
-        ($userType ==1)?$this->service_model->set_data(array('userType'=>1)):"";
+        ($userType ==1)?$this->user_model->set_data(array('userType'=>1)):"";
         $list = $this->user_model->get_list();
         
         $data = array();

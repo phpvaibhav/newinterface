@@ -101,7 +101,8 @@ $(function(){
                   if(res.status=='success'){
                    toastr.success(res.message, 'Success', {timeOut: 5000});
                     if(res.users.userType==1){
-                      window.location = base_url+'admin/dashboard';
+						 window.location = base_url+'service';
+                     // window.location = base_url+'admin/dashboard';
                     }else{
                       window.location = base_url+'service';
                     }
@@ -249,7 +250,8 @@ $(function(){
                   if(res.status=='success'){
                    toastr.success(res.message, 'Success', {timeOut: 5000});
                     if(res.users.userType==1){
-                      window.location = base_url+'admin/dashboard';
+						 window.location = base_url+'service';
+                      //window.location = base_url+'admin/dashboard';
                     }else{
                       window.location = base_url+'service';
                     }
