@@ -16,10 +16,10 @@ class Background
        //Use SSL & port 443 for secure servers
        //Use otherwise for localhost and non-secure servers
        //For secure server
-       // $fp = fsockopen('ssl://' . $parts['host'], isset($parts['port']) 
-                 //  ? $parts['port'] : 443, $errno, $errstr, 30);
+        $fp = fsockopen('ssl://' . $parts['host'], isset($parts['port']) 
+                   ? $parts['port'] : 443, $errno, $errstr, 30);
         //For localhost and un-secure server
-       $fp = fsockopen($parts['host'], isset($parts['port']) ? $parts['port'] : 80, $errno, $errstr, 30);
+      // $fp = fsockopen($parts['host'], isset($parts['port']) ? $parts['port'] : 80, $errno, $errstr, 30);
         if(!$fp)
         {
 			 log_event("Something going wrong.", $this->background_log_file);  //create log of notifcation
