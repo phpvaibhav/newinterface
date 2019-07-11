@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ChangePassword extends Common_Controller {
+class ChangePassword extends Common_Back_Controller {
 
     public $data = array();
     public $file_data = "";
@@ -11,17 +11,20 @@ class ChangePassword extends Common_Controller {
         parent::__construct();
         //$this->form_validation->CI =& $this;  //required for form validation callbacks in HMVC
         $this->validation_rules = array();
-        $this->load->model('common_model');
+        //$this->load->model('common_model');
     }
     
     // Change Password  From email Template url
+  
     public function change_password(){
+       
          $data['email']=decoding($this->uri->segment(4));
-         $data['password_token']=$this->uri->segment(5);
-         $data['check_send']=0;
+         $data['passToken']=$this->uri->segment(5);
+       //  $data['check_send']=0;
          $data1['changetype']="";
-
-         $response=$this->common_model->is_data_exists(USERS,$data);// check user valid or Invalid
+        
+         $response= $this->common_model->is_data_exists('users',$data);// check user valid or Invalid
+      
          if($response){
             $data1['encode_email']=$this->uri->segment(4);
            $this->load->login_render('change_password',$data1);
@@ -42,7 +45,7 @@ class ChangePassword extends Common_Controller {
             $changetype= $this->input->post('changetype');
             $update_data = array(
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-                'check_send' => 1,
+                'passToken' => "",
             );
            $table = USERS;
             $where_email = array('email'=>decoding($this->input->post('e'))); // decode email id
@@ -53,9 +56,9 @@ class ChangePassword extends Common_Controller {
             if($response){
               $rurl=base_url().'password/ChangePassword/success';  // For Redirect after change password
               $this->common_model->updateFields($table, $update_data, $where_email);  //update Password
-              $response = array('status' => 1, 'message' =>'Password Change', 'url'=>$rurl); //success msg
+              $response = array('status' =>SUCCESS, 'message' =>'Password Change successfully.', 'url'=>$rurl); //success msg
             }else{
-              $response = array('status' => 0, 'message' => 'Email id does not exist.');  
+              $response = array('status' =>FAIL, 'message' => 'Email id does not exist.');  
             }
             //print_r($response); die();
         }

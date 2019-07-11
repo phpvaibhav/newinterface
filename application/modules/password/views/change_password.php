@@ -16,6 +16,7 @@
                     <label class="label">Password</label>
                     <label class="input"> <i class="icon-append fa fa-lock"></i>
                       <input type="password" id="password" name="password" class="disablecopypaste">
+                      <input type="hidden" name="e" value="<?php echo $encode_email; ?>">
                       <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b> </label>
                   </section>
                   <section>

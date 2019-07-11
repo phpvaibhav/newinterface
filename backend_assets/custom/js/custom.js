@@ -594,8 +594,9 @@ $(document).on('submit', "#smart-form-updateuser", function (event) {
               $('#submit').prop('disabled', true);
             $.ajax({
                  type: "POST",
-                 url: base_url+'api/'+$(form).attr('action'),
+                 url: $(form).attr('action'),
                  data: $(form).serialize(),
+                 dataType:'json',
                   cache: false,
            beforeSend: function() {
           
@@ -603,8 +604,9 @@ $(document).on('submit', "#smart-form-updateuser", function (event) {
                   },     
                  success: function (res) {
                   if(res.status=='success'){
-                   toastr.success(res.message, 'Success', {timeOut: 5000});
-                   window.location = base_url;
+                   toastr.success(res.message, 'Success', {timeOut: 3000});
+                    setTimeout(function(){ window.location = base_url; },4000);
+                  
                   }else{
                     toastr.error(res.message, 'Alert!', {timeOut: 5000});
                   }
