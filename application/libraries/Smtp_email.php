@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-require APPPATH . "third_party/phpmailer/class.phpmailer.php"; //php smtp mailer library
+require APPPATH . "vendor/phpmailer/class.phpmailer.php"; //php smtp mailer library
 class Smtp_email{
 
     protected $CI;
