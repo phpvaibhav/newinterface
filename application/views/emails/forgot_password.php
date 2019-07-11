@@ -27,14 +27,34 @@
                     <tr>
                         <td>
 
-                            <h3 style="color: #333; font-size: 28px; font-weight: normal; margin: 0; text-transform: capitalize;">Reset Password</h3>
-                            <p style="text-align: left; color: #333; font-size: 16px; line-height: 28px;">Hello <?php echo $firstName ?>,</p>
-                            <p style="text-align: left;color: #333; font-size: 16px; line-height: 28px;">You Recently requested to reset your password for your agrinvest account. Please use password given below to login: </p>
-                            <h3 style="margin: 0; background-color: #F3F3F3; font-size: 25px; display: inline-block; font-weight: bold;"><?php echo 
-                            $password ?></h3>
-                            <p style="text-align: left;color: #333; font-size: 16px; line-height: 28px;">If you did not request password reset, please login with above password and change your password immediately.</p>  
+                            <h3 style="color: #333; font-size: 28px; font-weight: normal; margin: 0; text-transform: capitalize;">Forgot Password</h3>
+                            <p style="text-align: left; color: #333; font-size: 16px; line-height: 28px;">Hello <?php echo $full_name; ?>,</p>
+                            <p style="text-align: left;color: #333; font-size: 16px; line-height: 28px;">You recently requested to reset your password for your interface account. Please click on button To reset your password: </p>
+                            <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td align="center">
+                            <!-- Border based button
+                       https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design -->
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td align="center">
+                                  <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                      <td>
+                                        <a style="border: 10px #dd4b39 solid;background:#dd4b39;color: white;text-decoration: none;" class="button button--green" href="<?php echo $url; ?>">Forgot Password</a>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                            
+                            <p style="text-align: left;color: #333; font-size: 16px; line-height: 28px;">If you didn't generate this link, don't worry. You can login with your old password. This link is only for one time use.</p>  
 
-                            <p style="text-align: left;color: #333; font-size: 16px; line-height: 28px;">Thanks,<br></p>  
+                            <p style="text-align: left;color: #333; font-size: 16px; line-height: 28px;">Thanks,<br><?php echo "Inter face"; ?> team</p>  
                         </td>
                     </tr>
                 </table>

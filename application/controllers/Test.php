@@ -45,7 +45,7 @@
         $maildata['message'] ="mail send successfully";
         $paramMail = array('email' =>$email,'subject' =>$subject,'path'=>'email','msg'=>$maildata);
 
-        $this->background->do_in_background($urlMail, $paramMail);
+        $s= $this->background->do_in_background($urlMail, $paramMail);print_r($s);
         echo "done";
   }
  }
