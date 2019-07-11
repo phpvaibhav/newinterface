@@ -21,6 +21,20 @@ class Service extends Common_Back_Controller {
         
         $data['title'] = "Service";
         $this->load->admin_render('add_service', $data);
+    } 
+    public function serviceDetail() { 
+        
+        $data['title'] = "Service";
+        $serviceId  = decoding($this->uri->segment(3));
+
+        $service = $this->common_model->getsingle('service',array('serviceId'=>$serviceId));
+       
+        if(empty($service)){
+            redirect('service');
+        }
+        $data['service'] = $service;
+        $data['images'] = $this->common_model->getAll('images',array('serviceId'=>$serviceId));
+        $this->load->admin_render('serviceDetail', $data);
     }
    
 }

@@ -22,12 +22,24 @@ class Users extends Common_Back_Controller {
         $data['title'] = "Users";
         $this->load->admin_render('add_user', $data);
     }
-     public function user_profile(){
-        $userId  = decoding($this->post('use'));
+    public function userDetail(){
+        
+        $userId  = decoding($this->uri->segment(3));
+
         $data['title'] = "Profile";
         $where = array('id'=>$userId);
         $result = $this->common_model->getsingle('users',$where);
         $data['userData'] = $result;
-        $this->load->admin_render('admin_profile', $data, '');
+        $this->load->admin_render('userDetail', $data, '');
+    } 
+    public function changePassword(){
+        
+        $userId  = decoding($this->uri->segment(3));
+
+        $data['title'] = "Profile";
+        $where = array('id'=>$userId);
+        $result = $this->common_model->getsingle('users',$where);
+        $data['userData'] = $result;
+        $this->load->admin_render('changePassword', $data, '');
     }   
 }

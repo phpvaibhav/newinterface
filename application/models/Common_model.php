@@ -58,13 +58,13 @@ class Common_model extends CI_Model {
         }
 
         $q = $this->db->get($table);
-        return $q->row();
+        return $q->row_array();
     }
     
     /* GET MULTIPLE RECORD 
      * Modified in ver 2.0
      */
-    function getAll($table, $order_fld = '', $order_type = '', $select = 'all', $limit = '', $offset = '',$group_by='') {
+    function getAll($table,$where = '', $order_fld = '', $order_type = '', $select = 'all', $limit = '', $offset = '',$group_by='') {
         $data = array();
         if ($select == 'all') {
             $this->db->select('*');
@@ -75,7 +75,9 @@ class Common_model extends CI_Model {
             $this->db->group_by($group_by);
         }
         $this->db->from($table);
-
+ if ($where != '') {
+            $this->db->where($where);
+        }
         if ($limit != '' && $offset != '') {
             $this->db->limit($limit, $offset);
         } else if ($limit != '') {

@@ -113,6 +113,51 @@ function(isConfirm) {
     //swal("Cancelled", "Your Process has been Cancelled", "error");
   }
 });
+}     
+function statusChangeDetail(e){
+  swal({
+  title: "Are you sure?",
+  text:  $(e).data('message'),
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonClass: "btn-danger",
+  confirmButtonText: "Yes",
+  cancelButtonText: "No",
+  closeOnConfirm: false,
+  closeOnCancel: true,
+  showLoaderOnConfirm: true
+},
+function(isConfirm) {
+  if (isConfirm) {
+    /*ajax*/
+    $.ajax({
+                 type: "POST",
+                 url: base_url+'api/service/changeStatus',
+                 data: {srv:$(e).data('serid'),srs:$(e).data('sid')},
+                  cache: false,
+           beforeSend: function() {
+          
+              
+                  },     
+                 success: function (res) {
+                  if(res.status=='success'){
+                   
+                  
+                   swal("Success", "Your process  has been successfully done.", "success");
+                 location.reload();
+                  }else{
+                    toastr.error(res.message, 'Alert!', {timeOut: 5000});
+                  }
+                  
+                     
+                 }
+             });
+    /*ajax*/
+   
+  } else {
+    //swal("Cancelled", "Your Process has been Cancelled", "error");
+  }
+});
 }
 function statusChangeuser(e){
   swal({

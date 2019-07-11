@@ -203,7 +203,7 @@
             <ul>
               <li>
                 <a href="<?php echo base_url().'service'; ?>" title="Services"><span class="menu-item-parent">
-                  <?php echo (isset($user['userTyppe'])&& $user['userTyppe']==2) ? "My Services" :"Services"; ?></span></a>
+                  <?php echo (isset($user['userType'])&& $user['userType']==2) ? "My Services" :"Services"; ?></span></a>
               </li>
               <?php if(isset($user['userType'])&& $user['userType']==2): ?>
               <li>

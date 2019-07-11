@@ -270,7 +270,135 @@ $(function(){
             error.insertAfter(element.parent());
           }
         });
-                // Validation
+        // Validation
+        // Change Password
+          // Validation
+        $("#smart-form-changepass").validate({
+
+          // Rules for form validation
+          rules : {
+          
+            password : {
+              required : true,
+              minlength : 3,
+              maxlength : 20
+            }, 
+            npassword : {
+              required : true,
+              minlength : 3,
+              maxlength : 20
+            },
+            rnpassword : {
+              required : true,
+              minlength : 3,
+              maxlength : 20,
+              equalTo : '#npassword'
+            },
+          
+          },
+
+          // Messages for form validation
+          messages : {
+            
+            password : {
+              required : 'Please enter your current password'
+            },
+            npassword : {
+              required : 'Please enter your new password'
+            },
+            rnpassword : {
+              required : 'Please enter your password one more time',
+              equalTo : 'Please enter the same password as above'
+            }
+         
+          },
+
+          // Ajax form submition
+          submitHandler : function(form) {
+               $('#submit').prop('disabled', true);
+            $.ajax({
+                 type: "POST",
+                 url: base_url+'api/users/'+$(form).attr('action'),
+                  "headers": { 'authToken':authToken},
+                 data: $(form).serialize(),
+                  cache: false,
+           beforeSend: function() {
+          
+                    $('#submit').prop('disabled', true);  
+                  },     
+                 success: function (res) {
+                  if(res.status=='success'){
+                   toastr.success(res.message, 'Success', {timeOut: 3000});
+                   setTimeout(function(){ window.location = base_url+'service'; },4000);
+                    
+                      //window.location = base_url+'admin/dashboard';
+                
+                  }else{
+                    toastr.error(res.message, 'Alert!', {timeOut: 5000});
+                  }
+                  
+                    $('#submit').prop('disabled', false);  
+                 }
+             });
+             return false; // required to block normal submit since you used ajax
+          },
+
+          // Do not change code below
+          errorPlacement : function(error, element) {
+            error.insertAfter(element.parent());
+          }
+        });
+        // Change Password
+        // update profile
+         $("#smart-form-updateuser").validate({
+
+          // Rules for form validation
+          rules : {
+            fullName : {
+              required : true
+            },
+            email : {
+              required : true,
+              email : true
+            },
+            contact : {
+              required : true,
+            
+            },
+          
+          
+          },
+
+          // Messages for form validation
+          messages : {
+            fullName : {
+              required : 'Please enter your login'
+            },
+            email : {
+              required : 'Please enter your email address',
+              email : 'Please enter a VALID email address'
+            },
+           contact : {
+              required : 'Please enter your contact number',
+            
+            },
+           
+          
+          },
+
+          // Ajax form submition
+         /* submitHandler : function(form) {
+           
+             return false; // required to block normal submit since you used ajax
+          },
+*/
+          // Do not change code below
+          errorPlacement : function(error, element) {
+            error.insertAfter(element.parent());
+          }
+        });
+        // update profile
+       
         $("#smart-form-service").validate({
 
           // Rules for form validation
@@ -383,8 +511,39 @@ $(function(){
           success: function (res) {
                    $('#submit').prop('disabled', false); 
                   if(res.status=='success'){
-                   toastr.success(res.message, 'Success', {timeOut: 5000});
-                   window.location = base_url+'service';
+                   toastr.success(res.message, 'Success', {timeOut: 3000});
+                   setTimeout(function(){ window.location = base_url+'service'; },4000);
+                  // window.location = base_url+'service';
+                  }else{
+                    toastr.error(res.message, 'Alert!', {timeOut: 5000});
+                  }
+                  
+                    
+                 }
+    });
+
+});      
+$(document).on('submit', "#smart-form-updateuser", function (event) {
+
+    event.preventDefault();
+    var formData = new FormData(this);
+    $.ajax({
+        type: "POST",
+        url: base_url+'api/users/'+$(this).attr('action'),
+        headers: { 'authToken': authToken },
+        data: formData, //only input
+        processData: false,
+        contentType: false,
+        cache: false,
+            beforeSend: function () {
+            $('#submit').prop('disabled', true);
+            },
+          success: function (res) {
+                   $('#submit').prop('disabled', false); 
+                  if(res.status=='success'){
+                   toastr.success(res.message, 'Success', {timeOut: 3000});
+                   setTimeout(function(){ window.location = base_url+'users/userDetail/'+res.url; },4000);
+                   
                   }else{
                     toastr.error(res.message, 'Alert!', {timeOut: 5000});
                   }
