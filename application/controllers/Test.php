@@ -12,6 +12,30 @@
         error_reporting(E_ALL);
   }
 
+  function index(){
+   $subject = 'New Service';
+        $email   =  "php.vaibhav@gmail.com";
+        $urlMail            = base_url()."manage/mailSent";
+        $maildata['title'] ="test demo";
+        $maildata['message'] ="mail send successfully";
+      
+            $message=$this->load->view('emails/forgot_password',$maildata,TRUE);
+
+            $subject = "Forgot Password";
+
+            $this->load->library('smtp_email');
+            $response=$this->smtp_email->send_mail($useremail,$subject,$message); // Send email For Forgot password
+            print_r($response);
+            if ($response)
+            {  
+
+                echo  "ES emailSend";
+            }
+            else
+            { 
+                  echo  "NS NotSend"; //NS NotSend
+            }
+  } 
   function test(){
     $this->load->library('background');
         $subject = 'New Service';
