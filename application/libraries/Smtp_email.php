@@ -5,9 +5,9 @@ class Smtp_email{
 
     protected $CI;
    
-    var $host = '', //server hostname
-        $from_mail = 'support@project.org', 
-        $pwd = '', // email a/c password
+    var $host = 'outthinkcoders.com', //server hostname
+        $from_mail = 'no-reply@outthinkcoders.com', 
+        $pwd = 'EsEyCb7Tii2K', // email a/c password
         $port = 25, //or 25(depends or server email configuration)
         $from_name = 'Interface';
     

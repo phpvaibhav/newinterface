@@ -74,6 +74,16 @@ class Service extends Common_Service_Controller{
                         $this->common_model->insertBatch('images',$serviceImage);
                     endif;
                endif;//images
+                //email send
+                    /*$this->load->library('background');
+                    $subject = 'New Service';
+                    $email   =  "php.vaibhav@gmail.com";
+                    $urlMail            = base_url()."manage/mailSent";
+                    $paramMail = array('email' =>$email,'subject' =>$subject,'path'=>'invoiceLink','msg'=>$maildata1);
+
+                    $this->background->do_in_background($urlMail, $paramMail);*/
+                       
+                //email send
         	  	$response = array('status'=>SUCCESS,'message'=>ResponseMessages::getStatusCodeMessage(122));
          
              }else{
