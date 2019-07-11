@@ -24,7 +24,7 @@
             $subject = "Forgot Password";
 
             $this->load->library('smtp_email');
-            $response=$this->smtp_email->send_mail($useremail,$subject,$message); // Send email For Forgot password
+            $response=$this->smtp_email->send_mail($email,$subject,$message); // Send email For Forgot password
             print_r($response);
             if ($response)
             {  
