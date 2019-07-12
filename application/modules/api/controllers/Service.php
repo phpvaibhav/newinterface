@@ -182,7 +182,7 @@ class Service extends Common_Service_Controller{
                    
                     $email = $this->common_model->is_data_exists('users',array('id'=>$dataExist->userId));
                     $this->load->library('smtp_email');
-                    $this->smtp_email->send_mail_multiple($email,$subject,$message);
+                    $this->smtp_email->send_mail($email,$subject,$message);
                     
                     //send mail
                 $response = array('status'=>SUCCESS,'message'=>ResponseMessages::getStatusCodeMessage(200));
