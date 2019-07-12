@@ -272,7 +272,7 @@ class Common_model extends CI_Model {
         $sql= $this->db->get();
 
         if($sql->num_rows()):
-            foreach ($sql->result(); as $k => $v) {
+            foreach ($sql->result() as $k => $v) {
               $email[] = $v->email;
             }
         endif;

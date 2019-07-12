@@ -173,7 +173,7 @@ class Service extends Common_Service_Controller{
         $where = array('serviceId'=>$serviceId);
          $dataExist=$this->common_model->is_data_exists('service',$where);
         if($dataExist){
-             $dataExist=$this->common_model->updateFields('service',array('status'=>$status),$where);
+             $update=$this->common_model->updateFields('service',array('status'=>$status),$where);
                     //send mail
                      $maildata['title']    = "Service Status";
                     $maildata['message']  = "Your service request is ".($status==2)? " Completed" : "in progress";
