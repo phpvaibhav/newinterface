@@ -64,7 +64,7 @@
             <td style="text-align: center;">
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#fff">
                     <tr>
-                        <td style="padding: 10px;background: #23c466;color: #fff;">Copyright &copy; <?php echo date('Y')." ".SITE_NAME; ?></td>
+                        <td style="padding: 10px;background: #23c466;color: #fff;">Copyright &copy; <?php echo date('Y'); ?></td>
                     </tr>
                 </table>
             </td>

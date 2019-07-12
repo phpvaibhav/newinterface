@@ -75,14 +75,17 @@ class Service extends Common_Service_Controller{
                     endif;
                endif;//images
                 //email send
-                    /*$this->load->library('background');
-                    $subject = 'New Service';
-                    $email   =  "php.vaibhav@gmail.com";
-                    $urlMail            = base_url()."manage/mailSent";
-                    $paramMail = array('email' =>$email,'subject' =>$subject,'path'=>'invoiceLink','msg'=>$maildata1);
-
-                    $this->background->do_in_background($urlMail, $paramMail);*/
-                       
+                                        //send mail
+                       /* $maildata['title']    = $this->authData->fullName." has been  created Interface service";
+                        $maildata['message']  = "<table><tr><td>Product</td><td>".$data_val['productName']."</td></tr><tr><td>Vendor</td><td>".$data_val['vendor']."</td></tr><tr><td>Serial number</td><td>".$data_val['serialNumber']."</td></tr><tr><td>Purchase Date</td><td>".$purchaseDate."</td></tr><tr><td>Contact number</td><td>".$data_val['contactNumber']."</td></tr><tr><td>Comment</td><td>".$data_val['comment']."</td></tr></table>";
+                        $subject = "Service Request";
+                        $message=$this->load->view('emails/email',$maildata,TRUE);
+                        $emails = $this->common_model->adminEmails();
+                        if(!empty($emails)){
+                        $this->load->library('smtp_email');
+                        $this->smtp_email->send_mail_multiple($emails,$subject,$message);
+                        }*/
+                    //send mail
                 //email send
         	  	$response = array('status'=>SUCCESS,'message'=>ResponseMessages::getStatusCodeMessage(122));
          
@@ -171,6 +174,17 @@ class Service extends Common_Service_Controller{
          $dataExist=$this->common_model->is_data_exists('service',$where);
         if($dataExist){
              $dataExist=$this->common_model->updateFields('service',array('status'=>$status),$where);
+                    //send mail
+                    /* $maildata['title']    = "Service Status";
+                    $maildata['message']  = "Your service request is ".($status==2)? " Completed" : "in progress";
+                    $subject = "Service Process";
+                    $message=$this->load->view('emails/email',$maildata,TRUE);
+                   
+                    $email = $this->common_model->is_data_exists('users',array('id'=>$dataExist->userId));
+                    $this->load->library('smtp_email');
+                    $this->smtp_email->send_mail_multiple($email,$subject,$message);
+                    */
+                    //send mail
                 $response = array('status'=>SUCCESS,'message'=>ResponseMessages::getStatusCodeMessage(200));
         }else{
            $response = array('status'=>FAIL,'message'=>ResponseMessages::getStatusCodeMessage(118));  
