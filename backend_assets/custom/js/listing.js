@@ -204,3 +204,49 @@ function(isConfirm) {
   }
 });
 }
+function statusChangeuserDtails(e){
+  swal({
+  title: "Are you sure?",
+  text:  $(e).data('message'),
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonClass: "btn-danger",
+  confirmButtonText: "Yes",
+  cancelButtonText: "No",
+  closeOnConfirm: false,
+  closeOnCancel: true,
+  showLoaderOnConfirm: true
+},
+function(isConfirm) {
+  if (isConfirm) {
+    /*ajax*/
+    $.ajax({
+                 type: "POST",
+                 url: base_url+'api/users/changeStatus',
+                 data: {use:$(e).data('useid') },
+                  cache: false,
+           beforeSend: function() {
+          
+              
+                  },     
+                 success: function (res) {
+                  if(res.status=='success'){
+                   
+                  
+                   swal("Success", "Your process  has been successfully done.", "success");
+                  
+                   setTimeout(function(){ location.reload(); },4000);
+                  }else{
+                    toastr.error(res.message, 'Alert!', {timeOut: 5000});
+                  }
+                  
+                     
+                 }
+             });
+    /*ajax*/
+   
+  } else {
+    //swal("Cancelled", "Your Process has been Cancelled", "error");
+  }
+});
+}

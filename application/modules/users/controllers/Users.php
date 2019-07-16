@@ -23,7 +23,7 @@ class Users extends Common_Back_Controller {
         $this->load->admin_render('add_user', $data);
     }
     public function userDetail(){
-        
+      //pr('admin@admin.com');
         $userId  = decoding($this->uri->segment(3));
 
         $data['title'] = "Profile";

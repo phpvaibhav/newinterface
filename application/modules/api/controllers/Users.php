@@ -165,7 +165,10 @@ class Users extends Common_Service_Controller{
                         endif;
 
                         }
-                        $userData['profileImage']           =   $profileImage;
+                        if(!empty($profileImage)){
+                            $userData['profileImage']           =   $profileImage;
+                        }
+                        
                     //update
                     $result = $this->common_model->updateFields('users',$userData,array('id'=>$userauth));
                    

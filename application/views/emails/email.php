@@ -45,19 +45,7 @@
             <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0">
                 <tr>
                     <td>
-                        <table width="100%" border="0" align="center" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <td style="padding: 30px 20px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;">
-                                    <div style="display: inline-block; width: 100%; margin-bottom: 10px;">
-                                        <a style="margin: 0 3px;" href="#"><img src="fb-icon.png" style="width:100%;max-width: 30px;"></a>
-                                        <a style="margin: 0 3px;" href="#"><img src="instagram-icon.png" style="width:100%;max-width: 30px;"></a>
-                                        <a style="margin: 0 3px;" href="#"><img src="twitter-icon.png" style="width:100%;max-width: 30px;"></a>
-                                    </div>
-                                    <p style="color: #fff; margin: 0 0 5px 0; font-size: 13px;">Copyright © <?php echo date("Y"); ?>. All right reserved.</p>
-                                    <p style="color: #fff; margin: 0; font-size: 13px;"></p>
-                                </td>
-                            </tr>
-                        </table>
+                       
                     </td>
                 </tr>
             </table>

@@ -87,6 +87,7 @@ $(function(){
           },
           // ajax 
             submitHandler: function (form) {
+              toastr.clear();
               $('#submit').prop('disabled', true);
             $.ajax({
                  type: "POST",
@@ -99,13 +100,15 @@ $(function(){
                   },     
                  success: function (res) {
                   if(res.status=='success'){
-                   toastr.success(res.message, 'Success', {timeOut: 5000});
-                    if(res.users.userType==1){
+                   toastr.success(res.message, 'Success', {timeOut: 3000});
+                    setTimeout(function(){ window.location = base_url+'service'; },4000);
+                  /*  if(res.users.userType==1){
 						 window.location = base_url+'service';
                      // window.location = base_url+'admin/dashboard';
                     }else{
                       window.location = base_url+'service';
                     }
+*/
                    
                   }else{
                     toastr.error(res.message, 'Alert!', {timeOut: 5000});
@@ -133,7 +136,7 @@ $(function(){
           messages : {
             email : {
               required : 'Please enter your email address',
-              email : 'Please enter a VALID email address'
+              email : 'Please enter a valid email address'
             },
           },
 
@@ -143,6 +146,7 @@ $(function(){
           },
           // ajax 
             submitHandler: function (form) {
+              toastr.clear();
               $('#submit').prop('disabled', true);
             $.ajax({
                  type: "POST",
@@ -155,10 +159,12 @@ $(function(){
                   },     
                  success: function (res) {
                   if(res.status=='success'){
-                   toastr.success(res.message, 'Success', {timeOut: 5000});
-                   window.location = base_url;
+                   toastr.success(res.message, 'Success', {timeOut: 3000});
+                    setTimeout(function(){ window.location = base_url; },4000);
+                  // window.location = base_url;
                   }else{
                     toastr.error(res.message, 'Alert!', {timeOut: 5000});
+
                   }
                   
                     $('#submit').prop('disabled', false);  
@@ -236,6 +242,7 @@ $(function(){
 
           // Ajax form submition
           submitHandler : function(form) {
+            toastr.clear();
                $('#submit').prop('disabled', true);
             $.ajax({
                  type: "POST",
@@ -247,16 +254,19 @@ $(function(){
                     $('#submit').prop('disabled', true);  
                   },     
                  success: function (res) {
+
                   if(res.status=='success'){
-                   toastr.success(res.message, 'Success', {timeOut: 5000});
-                    if(res.users.userType==1){
+                   toastr.success(res.message, 'Success', {timeOut: 3000});
+                    setTimeout(function(){ window.location = base_url+'service'; },4000);
+              /*      if(res.users.userType==1){
 						 window.location = base_url+'service';
                       //window.location = base_url+'admin/dashboard';
                     }else{
                       window.location = base_url+'service';
-                    }
+                    }*/
                   }else{
                     toastr.error(res.message, 'Alert!', {timeOut: 5000});
+
                   }
                   
                     $('#submit').prop('disabled', false);  
@@ -315,6 +325,7 @@ $(function(){
 
           // Ajax form submition
           submitHandler : function(form) {
+                toastr.clear();
                $('#submit').prop('disabled', true);
             $.ajax({
                  type: "POST",
@@ -494,7 +505,7 @@ $(function(){
         });
         //fromsubmit
         $(document).on('submit', "#smart-form-service", function (event) {
-
+            toastr.clear();
     event.preventDefault();
     var formData = new FormData(this);
     $.ajax({
@@ -524,7 +535,7 @@ $(function(){
 
 });      
 $(document).on('submit', "#smart-form-updateuser", function (event) {
-
+    toastr.clear();
     event.preventDefault();
     var formData = new FormData(this);
     $.ajax({
@@ -591,6 +602,7 @@ $(document).on('submit', "#smart-form-updateuser", function (event) {
           },
           // ajax 
             submitHandler: function (form) {
+              toastr.clear();
               $('#submit').prop('disabled', true);
             $.ajax({
                  type: "POST",

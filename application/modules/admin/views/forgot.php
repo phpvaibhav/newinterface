@@ -15,10 +15,10 @@
 								<fieldset>
 									
 									<section>
-										<label class="label">Enter your email address</label>
+										<label class="label">Enter your email address <span class="error">*</span></label>
 										<label class="input"> <i class="icon-append fa fa-envelope"></i>
 											<input type="email" name="email">
-											<b class="tooltip tooltip-top-right"><i class="fa fa-envelope txt-color-teal"></i> Please enter email address for password reset</b></label>
+											<b class="tooltip tooltip-top-right"><i class="fa fa-envelope txt-color-teal"></i>Please enter email address to reset password</b></label>
 									</section>
 									
 									<section>
