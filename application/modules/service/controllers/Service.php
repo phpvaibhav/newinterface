@@ -14,7 +14,7 @@ class Service extends Common_Back_Controller {
 
     public function index() { 
         
-        $data['title'] = "Service";
+        $data['title'] = "Service Information";
         $this->load->admin_render('service', $data);
     } 
     public function add_service() { 
@@ -24,7 +24,7 @@ class Service extends Common_Back_Controller {
     } 
     public function serviceDetail() { 
         
-        $data['title'] = "Service";
+        $data['title'] = "Service Information";
         $serviceId  = decoding($this->uri->segment(3));
 
         $service = $this->common_model->getsingle('service',array('serviceId'=>$serviceId));

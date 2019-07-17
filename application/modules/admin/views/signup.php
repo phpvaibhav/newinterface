@@ -15,34 +15,34 @@
 					 <label class="label">Full Name<span class="error">*</span></label>
 					<label class="input"> <i class="icon-append fa fa-user"></i>
 						<input type="text" name="fullName" placeholder="Full name" maxlength="20" size="20">
-						<b class="tooltip tooltip-bottom-right">Needed to enter the full name</b> </label>
+						<b class="tooltip tooltip-bottom-right">Please enter your full name</b> </label>
 				</section>
 
 				<section>
 					 <label class="label">Email<span class="error">*</span></label>
 					<label class="input"> <i class="icon-append fa fa-envelope"></i>
 						<input type="email" name="email" placeholder="Email address"  maxlength="20" size="20">
-						<b class="tooltip tooltip-bottom-right">Needed to verify your account</b> </label>
+						<b class="tooltip tooltip-bottom-right">Please enter your email</b> </label>
 				</section>
 				<section>
 					<label class="label">Contact Number<span class="error">*</span></label>
 					<label class="input"> <i class="icon-append fa fa-phone"></i>
 					<input type="text" name="contact" maxlength="13" size="13" class="number-only" placeholder="Contact">
-					<b class="tooltip tooltip-bottom-right">Needed to enter the contact number</b> </label>
+					<b class="tooltip tooltip-bottom-right">Please enter your contact number</b> </label>
 				</section>
 
 				<section>
 					<label class="label">Password<span class="error">*</span></label>
 					<label class="input"> <i class="icon-append fa fa-lock"></i>
 						<input type="password" name="password" placeholder="Password" id="password">
-						<b class="tooltip tooltip-bottom-right">Don't forget your password</b> </label>
+						<b class="tooltip tooltip-bottom-right">Please enter password</b> </label>
 				</section>
 
 				<section>
 					<label class="label">Confirm Password<span class="error">*</span></label>
 					<label class="input"> <i class="icon-append fa fa-lock"></i>
 						<input type="password" name="passwordConfirm" placeholder="Confirm password">
-						<b class="tooltip tooltip-bottom-right">Don't forget your password</b> </label>
+						<b class="tooltip tooltip-bottom-right">Please re-enter password</b> </label>
 				</section>
 			</fieldset>
 			<footer>

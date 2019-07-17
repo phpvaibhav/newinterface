@@ -68,7 +68,7 @@
 					
 						<h2 class="name">
 							<?php echo ucfirst($service['productName']); ?> 
-							<small>Vender by <a href="javascript:void(0);"><?php echo ucfirst($service['vendor']); ?></a></small>
+							<small>Vendor by <a href="javascript:void(0);"><?php echo ucfirst($service['vendor']); ?></a></small>
 							<!-- <i class="fa fa-star fa-2x text-primary"></i>
 							<i class="fa fa-star fa-2x text-primary"></i>
 							<i class="fa fa-star fa-2x text-primary"></i>
@@ -82,7 +82,7 @@
 						<hr>
 						<h4 class="price-container">
 							
-							<small>Serial number</small> <?php echo $service['serialNumber']; ?>
+							<span>Serial number </span>> <?php echo $service['serialNumber']; ?>
 						</h4>
 					
 						<div class="certified">

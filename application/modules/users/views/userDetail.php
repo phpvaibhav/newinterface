@@ -261,18 +261,18 @@
 									<label class="input"> <i class="icon-append fa fa-user"></i>
 									<input type="text" name="fullName" placeholder="Full name" value="<?php echo $userData['fullName']; ?>">
 									<input type="hidden" name="userauth" value="<?php echo $this->uri->segment(3); ?>">
-									<b class="tooltip tooltip-bottom-right">Needed to enter the full name</b> </label>
+									<b class="tooltip tooltip-bottom-right">Please enter your full name</b> </label>
 								</section>
 
 								<section>
 								<label class="input"> <i class="icon-append fa fa-envelope"></i>
 									<input type="email" name="email" placeholder="Email address" value="<?php echo $userData['email']; ?>">
-									<b class="tooltip tooltip-bottom-right">Needed to verify your account</b> </label>
+									<b class="tooltip tooltip-bottom-right">Please enter your registered email address</b> </label>
 								</section>
 								<section>
 									<label class="input"> <i class="icon-append fa fa-phone"></i>
 									<input type="text" name="contact" maxlength="13" size="13" class="number-only" placeholder="Contact"  value="<?php echo $userData['contactNumber']; ?>">
-									<b class="tooltip tooltip-bottom-right">Needed to enter the contact number</b> </label>
+									<b class="tooltip tooltip-bottom-right">Please enter your contact number</b> </label>
 								</section>
 							<!-- 	<section>
 									<label class="textarea">

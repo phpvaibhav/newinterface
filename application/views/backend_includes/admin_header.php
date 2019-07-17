@@ -199,7 +199,7 @@
 
         <ul>
           <li>
-            <a href="#" title="Services"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Services</span></a>
+            <a href="#" title="Services"><i class="fa fa-lg fa-fw fa-circle-o"></i> <span class="menu-item-parent">Services</span></a>
             <ul>
               <li>
                 <a href="<?php echo base_url().'service'; ?>" title="Services"><span class="menu-item-parent">
@@ -274,9 +274,9 @@
             <h1 class="page-title txt-color-blueDark">
               
               <!-- PAGE HEADER -->
-              <i class="fa-fw fa fa-home"></i> 
+      <!--         <i class="fa-fw fa fa-home"></i>  -->
                 <?php echo $title; ?>
-              <span>>  
+              <span>  
                
               </span>
             </h1>

@@ -36,7 +36,7 @@ class Users extends Common_Back_Controller {
         
         $userId  = decoding($this->uri->segment(3));
 
-        $data['title'] = "Profile";
+        $data['title'] = "Change Password";
         $where = array('id'=>$userId);
         $result = $this->common_model->getsingle('users',$where);
         $data['userData'] = $result;

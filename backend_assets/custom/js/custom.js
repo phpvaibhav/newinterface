@@ -212,21 +212,24 @@ $(function(){
 
           // Messages for form validation
           messages : {
-            login : {
-              required : 'Please enter your login'
+            fullName : {
+              required : 'Please enter your full name'
             },
             email : {
               required : 'Please enter your email address',
-              email : 'Please enter a VALID email address'
+              email : 'Please enter a valid email address'
+            },
+            contact : {
+              required : 'Please enter your contact number'
             },
             password : {
               required : 'Please enter your password'
             },
             passwordConfirm : {
-              required : 'Please enter your password one more time',
+              required : 'Please re-enter your password',
               equalTo : 'Please enter the same password as above'
-            },
-            firstname : {
+            }
+          /*  ,firstname : {
               required : 'Please select your first name'
             },
             lastname : {
@@ -237,7 +240,7 @@ $(function(){
             },
             terms : {
               required : 'You must agree with Terms and Conditions'
-            }
+            }*/
           },
 
           // Ajax form submition
@@ -317,7 +320,7 @@ $(function(){
               required : 'Please enter your new password'
             },
             rnpassword : {
-              required : 'Please enter your password one more time',
+              required : 'Please re-enter your password',
               equalTo : 'Please enter the same password as above'
             }
          
@@ -387,7 +390,7 @@ $(function(){
             },
             email : {
               required : 'Please enter your email address',
-              email : 'Please enter a VALID email address'
+              email : 'Please enter a valid email address'
             },
            contact : {
               required : 'Please enter your contact number',

@@ -10,9 +10,11 @@
                "lengthChange": false,
               "oLanguage": {
                "sEmptyTable" : '<center>No serivce found</center>',
+                "sSearch": '<i class="fa fa-search" aria-hidden="true"></i>' 
               },
                "oLanguage": {
                "sZeroRecords" : '<center>No serivce found</center>',
+                 "sSearch": '<i class="fa fa-search" aria-hidden="true"></i>' 
               },
              
               // Load data for the table's content from an Ajax source
@@ -44,9 +46,11 @@
                "lengthChange": false,
               "oLanguage": {
                "sEmptyTable" : '<center>No customer found</center>',
+              "sSearch": '<i class="fa fa-search" aria-hidden="true"></i>' 
               },
                "oLanguage": {
                "sZeroRecords" : '<center>No customer found</center>',
+                "sSearch": '<i class="fa fa-search" aria-hidden="true"></i>'
               },
              
               // Load data for the table's content from an Ajax source

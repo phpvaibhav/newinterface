@@ -45,7 +45,7 @@
 								<tr>
 									<th data-hide="phone">ID</th>
 									<th data-class="expand">Product Name</th>
-									<th data-hide="phone">Vender</th>
+									<th data-hide="phone">Vendor</th>
 									<th data-hide="phone,tablet">Serial Number</th>
 									<th data-hide="phone,tablet">Date</th>
 									<th data-hide="phone,tablet">Contact number</th>
