@@ -182,7 +182,7 @@ class Service extends Common_Service_Controller{
                     $subject = "Service Process";
                     $message=$this->load->view('emails/email',$maildata,TRUE);
                    
-                    $email = $this->common_model->is_data_exists('users',array('id'=>$dataExist->userId));
+                    $email = $this->common_model->is_data_exists('users',array('id'=>$dataExist->userId))->email;
                     $this->load->library('smtp_email');
                     $this->smtp_email->send_mail($email,$subject,$message);
                     
