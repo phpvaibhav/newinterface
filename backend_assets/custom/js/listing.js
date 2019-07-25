@@ -48,6 +48,7 @@
                "sEmptyTable" : '<center>No customer found</center>',
               "sSearch": '<i class="fa fa-search" aria-hidden="true"></i>' 
               },
+              
                "oLanguage": {
                "sZeroRecords" : '<center>No customer found</center>',
                 "sSearch": '<i class="fa fa-search" aria-hidden="true"></i>'

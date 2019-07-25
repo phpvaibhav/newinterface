@@ -6,7 +6,7 @@ class User_model extends CI_Model {
         var  $userDefault = 'backend_assets/img/avatars/1.png';
     //var $table , $column_order, $column_search , $order =  '';
     var $table = 'users';
-    var $column_order = array('id','fullName','email','userType','contactNumber'); //set column field database for datatable orderable
+    var $column_order = array('id','fullName','email','userType','contactNumber','status'); //set column field database for datatable orderable
     var $column_sel = array('id','fullName','email','userType','contactNumber','(case when (status = 0) 
         THEN "Inactive" when (status = 1) 
         THEN "Active" ELSE
