@@ -14,7 +14,7 @@ class Service extends Common_Back_Controller {
 
     public function index() { 
         
-        $data['title'] =    (isset($user['userType'])&& $user['userType']==1)?"Service Information" :"My Services";
+        $data['title'] =    ($_SESSION[ADMIN_USER_SESS_KEY]['userType']==1)?"Service Information" :"My Services";
         $this->load->admin_render('service', $data);
     } 
     public function add_service() { 
