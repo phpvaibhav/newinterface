@@ -1,7 +1,6 @@
  var base_url = $('body').data('base-url'); // Base url
   var authToken = $('body').data('auth-url'); // Base url
           /*listing service */
-
           var service_list = $('#service_list').DataTable({ 
 
               "processing": true, //Feature control the processing indicator.
@@ -10,12 +9,15 @@
                "lengthChange": false,
               "oLanguage": {
                "sEmptyTable" : '<center>No serivce found</center>',
-                "sSearch": '<i class="fa fa-search" aria-hidden="true"></i>' 
+                "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>' 
               },
                "oLanguage": {
                "sZeroRecords" : '<center>No serivce found</center>',
-                 "sSearch": '<i class="fa fa-search" aria-hidden="true"></i>' 
+                 "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>' 
               },
+               initComplete: function () {
+    $('.dataTables_filter input[type="search"]').css({ 'height': '32px'});
+    },
              
               // Load data for the table's content from an Ajax source
               "ajax": {
@@ -46,14 +48,16 @@
                "lengthChange": false,
               "oLanguage": {
                "sEmptyTable" : '<center>No customer found</center>',
-              "sSearch": '<i class="fa fa-search" aria-hidden="true"></i>' 
+              "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>' 
               },
               
                "oLanguage": {
                "sZeroRecords" : '<center>No customer found</center>',
-                "sSearch": '<i class="fa fa-search" aria-hidden="true"></i>'
+                "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>'
               },
-             
+                          initComplete: function () {
+    $('.dataTables_filter input[type="search"]').css({ 'height': '32px'});
+    },
               // Load data for the table's content from an Ajax source
               "ajax": {
                   "url": base_url+"api/users/userList",
