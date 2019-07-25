@@ -40,6 +40,7 @@ class Admin extends Common_Back_Controller {
     }
     
     public function dashboard() {
+        redirect('service',true);
         $data['parent'] = "Dashboard";
         $data['title'] = "Dashboard";
         

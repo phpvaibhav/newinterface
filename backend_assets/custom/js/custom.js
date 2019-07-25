@@ -18,6 +18,13 @@ $(function(){
                 event.preventDefault();
             }
 });
+$(".alfaNumeric").on("keypress keyup blur",function (event) {
+       
+            if (this.value.match(/[^a-zA-Z0-9 ]/g)) {
+                    this.value = this.value.replace(/[^a-zA-Z0-9 ]/g, '');
+                }
+});
+
    //date 
    $( "#purchaseDate" ).datepicker({  
       dateFormat: 'mm/dd/yyyy'
@@ -74,7 +81,7 @@ $(function(){
           messages : {
             email : {
               required : 'Please enter your email address',
-              email : 'Please enter a VALID email address'
+              email : 'Please enter a valid email address'
             },
             password : {
               required : 'Please enter your password'
@@ -420,7 +427,7 @@ $(function(){
             productName : {
               required : true
             },
-            vender : {
+            vendor : {
               required : true,
              
             },
@@ -450,8 +457,8 @@ $(function(){
             productName : {
               required : 'Please enter your product name'
             },
-            vender : {
-              required : 'Please enter your vender'
+            vendor : {
+              required : 'Please enter your Vendor'
             },
             serialNumber : {
               required : 'Please enter your product serial number',

@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_model extends CI_Model {
-        var $userPath    ='uploads/users/';
+        var $userPath    ='uploads/users/thumb/';
         var  $userDefault = 'backend_assets/img/avatars/1.png';
     //var $table , $column_order, $column_search , $order =  '';
     var $table = 'users';

@@ -14,7 +14,7 @@
 				<section>
 					 <label class="label">Full Name<span class="error">*</span></label>
 					<label class="input"> <i class="icon-append fa fa-user"></i>
-						<input type="text" name="fullName" placeholder="Full name" maxlength="20" size="20">
+						<input type="text" name="fullName" placeholder="Full name" maxlength="50" size="50">
 						<b class="tooltip tooltip-bottom-right">Please enter your full name</b> </label>
 				</section>
 

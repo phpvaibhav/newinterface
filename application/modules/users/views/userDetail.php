@@ -15,24 +15,24 @@
 									<div class="air air-top-left padding-10">
 										<h4 class="txt-color-white font-md"><?php echo date('M d,Y',strtotime($userData['crd'])); ?></h4>
 									</div>
-									<ol class="carousel-indicators">
-										<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+<!-- 									<ol class="carousel-indicators">
+ -->									<!-- 	<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 										<li data-target="#myCarousel" data-slide-to="1" class=""></li>
 										<li data-target="#myCarousel" data-slide-to="2" class=""></li>
-									</ol>
+									</ol> -->
 									<div class="carousel-inner">
 										<!-- Slide 1 -->
 										<div class="item active">
 											<img src="<?php echo $backend_assets;?>img/demo/s1.jpg" alt="demo user">
 										</div>
 										<!-- Slide 2 -->
-										<div class="item">
+									<!-- 	<div class="item">
 											<img src="<?php echo $backend_assets;?>img/demo/s2.jpg" alt="demo user">
-										</div>
+										</div> -->
 										<!-- Slide 3 -->
-										<div class="item">
+<!-- 										<div class="item">
 											<img src="<?php echo $backend_assets;?>img/demo/m3.jpg" alt="demo user">
-										</div>
+										</div> -->
 									</div>
 								</div>
 							</div>

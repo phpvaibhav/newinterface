@@ -22,13 +22,13 @@
 				<section>
 					 <label class="label">Vendor<span class="error">*</span></label>
 					<label class="input">
-						<input type="text" name="vendor" placeholder="Vendor" placeholder="Product Name" >
+						<input type="text" name="vendor" placeholder="Vendor" placeholder="Vendor" maxlength="20" size="20" >
 						</label>
 				</section>
 				<section>
 					 <label class="label">Serial Number<span class="error">*</span></label>
 					<label class="input">
-						<input type="text" name="serialNumber" placeholder="Serial Number" maxlength="20" size="20" class="number-only">
+						<input type="text" name="serialNumber" placeholder="Serial Number" maxlength="20" size="20" class="alfaNumeric">
 						</label>
 				</section>
 				<section>

@@ -23,7 +23,7 @@ class Users extends Common_Service_Controller{
         $no++;
         $row = array();
         $row[] = $no;
-        $row[] = '<img src='.base_url($serData->profileImage).' alt="user profile" width="65%">';
+        $row[] = '<img src='.base_url($serData->profileImage).' alt="user profile" style="height:50px;width:50px;" >';
         $row[] = display_placeholder_text($serData->fullName); 
         $row[] = display_placeholder_text($serData->email); 
         $row[] = display_placeholder_text($serData->contactNumber); 

@@ -14,12 +14,12 @@ class Service extends Common_Back_Controller {
 
     public function index() { 
         
-        $data['title'] = "Service Information";
+        $data['title'] =    (isset($user['userType'])&& $user['userType']==1)?"Service Information" :"My Services";
         $this->load->admin_render('service', $data);
     } 
     public function add_service() { 
         
-        $data['title'] = "Service";
+        $data['title'] = "Add Service";
         $this->load->admin_render('add_service', $data);
     } 
     public function serviceDetail() { 
