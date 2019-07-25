@@ -146,7 +146,9 @@ class Service extends Common_Service_Controller{
             }
 
             $linkDtail = base_url('service/serviceDetail/'.encoding($serData->serviceId));
-            $action .= '<a href="'.$link.'" onclick="statusChange(this);" data-message="You want to change status!" data-serid="'.encoding($serData->serviceId).'" data-sid="'.encoding($applyStatus).'"  class="on-default edit-row table_action" title="View user">'.$applyMsg.'</a>';  
+            if($userType==1):
+            $action .= '<a href="'.$link.'" onclick="statusChange(this);" data-message="You want to change status!" data-serid="'.encoding($serData->serviceId).'" data-sid="'.encoding($applyStatus).'"  class="on-default edit-row table_action" title="View user">'.$applyMsg.'</a>';
+            endif;
             $action .= '&nbsp;<a href="'.$linkDtail.'" class="on-default edit-row table_action" title="Detail"><i class="fa fa-eye"></i></a>';
                
             // $clk_edit =  "editFn('admin/categoryCtrl','editGenres','$usersData->id');" ;
