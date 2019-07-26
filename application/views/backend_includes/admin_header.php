@@ -199,7 +199,7 @@
 
         <ul>
           <li>
-            <a href="#" title="Services"><i class="fa fa-lg fa-fw fa-circle-o"></i> <span class="menu-item-parent">Services</span></a>
+            <a href="#" title="Services"><i class="fa fa-lg fa-fw fa-cog"></i> <span class="menu-item-parent">Services</span></a>
             <ul>
               <li>
                 <a href="<?php echo base_url().'service'; ?>" title="Services"><span class="menu-item-parent">

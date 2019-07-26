@@ -23,7 +23,7 @@
 
 				-->
 				<header>
-					<span class="widget-icon"> <i class="fa fa-circle-o"></i> </span>
+					<span class="widget-icon"> <i class="fa fa-cog"></i> </span>
 					<h2>Serivce</h2>
 
 				</header>
