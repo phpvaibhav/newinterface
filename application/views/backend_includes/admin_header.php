@@ -198,15 +198,15 @@
         -->
 
         <ul>
-          <li>
+          <li class="<?php echo (strtolower($this->router->fetch_class()) == "service") ? "active open" : "" ?>">
             <a href="#" title="Services"><i class="fa fa-lg fa-fw fa-cog"></i> <span class="menu-item-parent">Services</span></a>
             <ul>
-              <li>
+              <li class="<?php echo ($this->uri->segment('2') == "" && $this->uri->segment('1') == "service") ? "active" : ""; ?>">
                 <a href="<?php echo base_url().'service'; ?>" title="Services"><span class="menu-item-parent">
                   <?php echo (isset($user['userType'])&& $user['userType']==2) ? "My Services" :"Services"; ?></span></a>
               </li>
               <?php if(isset($user['userType'])&& $user['userType']==2): ?>
-              <li>
+              <li class="<?php echo ($this->uri->segment('2') == "add_service" ) ? "active" : ""; ?>">
                 <a href="<?php echo base_url().'service/add_service'; ?>" title="Add service"><span class="menu-item-parent">Add Service</span></a>
               </li>
             <?php endif; ?>
@@ -214,7 +214,7 @@
             </ul> 
           </li>
           <?php if(isset($user['userType'])&& $user['userType']==1): ?>
-      <li>
+      <li class="<?php echo (strtolower($this->router->fetch_class()) == "users") ? "active open" : "" ?>">
             <a href="<?php echo base_url().'users'; ?>"><i class="fa fa-lg fa-fw fa-users"></i> <span class="menu-item-parent">Users</span></a>
           </li> 
         <?php endif; ?>
