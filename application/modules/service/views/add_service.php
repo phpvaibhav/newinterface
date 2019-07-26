@@ -15,20 +15,20 @@
 				<section>
 					 <label class="label">Product Name<span class="error">*</span></label>
 					<label class="input">
-						<input type="text" name="productName" placeholder="Product Name" maxlength="20" size="20" >
+						<input type="text" name="productName" placeholder="Product Name" maxlength="50" size="50" >
 						
 						</label>
 				</section>
 				<section>
 					 <label class="label">Vendor<span class="error">*</span></label>
 					<label class="input">
-						<input type="text" name="vendor" placeholder="Vendor" placeholder="Vendor" maxlength="20" size="20" >
+						<input type="text" name="vendor" placeholder="Vendor" placeholder="Vendor" maxlength="50" size="50" >
 						</label>
 				</section>
 				<section>
 					 <label class="label">Serial Number<span class="error">*</span></label>
 					<label class="input">
-						<input type="text" name="serialNumber" placeholder="Serial Number" maxlength="20" size="20" class="alfaNumeric">
+						<input type="text" name="serialNumber" placeholder="Serial Number" maxlength="50" size="50" class="alfaNumeric">
 						</label>
 				</section>
 				<section>
@@ -41,13 +41,13 @@
 				<section>
 					 <label class="label">Contact Number<span class="error">*</span></label>
 					<label class="input">
-						<input type="text" name="contactNumber" placeholder="Contact Number" maxlength="13" size="13"  class="number-only">
+						<input type="text" name="contactNumber" placeholder="Contact Number" maxlength="20" size="20"  class="number-only">
 						</label>
 				</section>
 				<section>
 					<label class="label">Comment<span class="error">*</span></label>
 					<label class="textarea">
-						<textarea name="comment" placeholder="Comment" maxlength="500"></textarea>
+						<textarea name="comment" placeholder="Comment" maxlength="700"></textarea>
 						</label>
 				</section>
 
