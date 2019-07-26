@@ -1,8 +1,13 @@
- runAllForms();
- /*$(window).load(function() {
-  alert("DFF");
-    $('#preloader').addClass('prloadHide');
-});*/
+runAllForms();
+//loader manage
+function preLoadshow(e){
+  if(e){
+      $('.pace').addClass('pace-active').removeClass('pace-inactive');
+  }else{
+     $('.pace').addClass('pace-inactive').removeClass('pace-active');
+  }
+}//end function
+//loader manage
 $(function(){
 
   $('.number-only').keypress(function(e) {
@@ -102,10 +107,12 @@ $(".alfaNumeric").on("keypress keyup blur",function (event) {
                  data: $(form).serialize(),
                   cache: false,
            beforeSend: function() {
-          
+                   preLoadshow(true);
                     $('#submit').prop('disabled', true);  
                   },     
                  success: function (res) {
+                    preLoadshow(false);
+                    setTimeout(function(){  $('#submit').prop('disabled', false); },4000);
                   if(res.status=='success'){
                    toastr.success(res.message, 'Success', {timeOut: 3000});
                     setTimeout(function(){ window.location = base_url+'service'; },4000);
@@ -118,10 +125,10 @@ $(".alfaNumeric").on("keypress keyup blur",function (event) {
 */
                    
                   }else{
-                    toastr.error(res.message, 'Alert!', {timeOut: 5000});
+                    toastr.error(res.message, 'Alert!', {timeOut: 3000});
                   }
                   
-                    $('#submit').prop('disabled', false);  
+                    
                  }
              });
              return false; // required to block normal submit since you used ajax
@@ -161,20 +168,22 @@ $(".alfaNumeric").on("keypress keyup blur",function (event) {
                  data: $(form).serialize(),
                   cache: false,
            beforeSend: function() {
-          
+                     preLoadshow(true);
                     $('#submit').prop('disabled', true);  
                   },     
                  success: function (res) {
+                   preLoadshow(false);
+                    setTimeout(function(){  $('#submit').prop('disabled', false); },4000);
                   if(res.status=='success'){
                    toastr.success(res.message, 'Success', {timeOut: 3000});
                     setTimeout(function(){ window.location = base_url; },4000);
                   // window.location = base_url;
                   }else{
-                    toastr.error(res.message, 'Alert!', {timeOut: 5000});
+                    toastr.error(res.message, 'Alert!', {timeOut: 4000});
 
                   }
                   
-                    $('#submit').prop('disabled', false);  
+                   // $('#submit').prop('disabled', false);  
                  }
              });
              return false; // required to block normal submit since you used ajax
@@ -260,11 +269,12 @@ $(".alfaNumeric").on("keypress keyup blur",function (event) {
                  data: $(form).serialize(),
                   cache: false,
            beforeSend: function() {
-          
+                     preLoadshow(true);
                     $('#submit').prop('disabled', true);  
                   },     
                  success: function (res) {
-
+                   preLoadshow(false);
+                    setTimeout(function(){  $('#submit').prop('disabled', false); },4000);
                   if(res.status=='success'){
                    toastr.success(res.message, 'Success', {timeOut: 3000});
                     setTimeout(function(){ window.location = base_url+'service'; },4000);
@@ -275,11 +285,11 @@ $(".alfaNumeric").on("keypress keyup blur",function (event) {
                       window.location = base_url+'service';
                     }*/
                   }else{
-                    toastr.error(res.message, 'Alert!', {timeOut: 5000});
+                    toastr.error(res.message, 'Alert!', {timeOut: 4000});
 
                   }
                   
-                    $('#submit').prop('disabled', false);  
+                    //$('#submit').prop('disabled', false);  
                  }
              });
              return false; // required to block normal submit since you used ajax
@@ -344,10 +354,12 @@ $(".alfaNumeric").on("keypress keyup blur",function (event) {
                  data: $(form).serialize(),
                   cache: false,
            beforeSend: function() {
-          
+                     preLoadshow(true);
                     $('#submit').prop('disabled', true);  
                   },     
                  success: function (res) {
+                   preLoadshow(false);
+                    setTimeout(function(){  $('#submit').prop('disabled', false); },4000);
                   if(res.status=='success'){
                    toastr.success(res.message, 'Success', {timeOut: 3000});
                    setTimeout(function(){ window.location = base_url+'service'; },4000);
@@ -355,10 +367,10 @@ $(".alfaNumeric").on("keypress keyup blur",function (event) {
                       //window.location = base_url+'admin/dashboard';
                 
                   }else{
-                    toastr.error(res.message, 'Alert!', {timeOut: 5000});
+                    toastr.error(res.message, 'Alert!', {timeOut: 4000});
                   }
                   
-                    $('#submit').prop('disabled', false);  
+                    //$('#submit').prop('disabled', false);  
                  }
              });
              return false; // required to block normal submit since you used ajax
@@ -527,16 +539,18 @@ $(".alfaNumeric").on("keypress keyup blur",function (event) {
         contentType: false,
         cache: false,
             beforeSend: function () {
+               preLoadshow(true);
             $('#submit').prop('disabled', true);
             },
           success: function (res) {
-                   $('#submit').prop('disabled', false); 
+             preLoadshow(false);
+                   setTimeout(function(){  $('#submit').prop('disabled', false); },4000);
                   if(res.status=='success'){
                    toastr.success(res.message, 'Success', {timeOut: 3000});
                    setTimeout(function(){ window.location = base_url+'service'; },4000);
                   // window.location = base_url+'service';
                   }else{
-                    toastr.error(res.message, 'Alert!', {timeOut: 5000});
+                    toastr.error(res.message, 'Alert!', {timeOut: 4000});
                   }
                   
                     
@@ -557,16 +571,18 @@ $(document).on('submit', "#smart-form-updateuser", function (event) {
         contentType: false,
         cache: false,
             beforeSend: function () {
+               preLoadshow(true);
             $('#submit').prop('disabled', true);
             },
           success: function (res) {
-                   $('#submit').prop('disabled', false); 
+             preLoadshow(false);
+                   setTimeout(function(){  $('#submit').prop('disabled', false); },4000);
                   if(res.status=='success'){
                    toastr.success(res.message, 'Success', {timeOut: 3000});
                    setTimeout(function(){ window.location = base_url+'users/userDetail/'+res.url; },4000);
                    
                   }else{
-                    toastr.error(res.message, 'Alert!', {timeOut: 5000});
+                    toastr.error(res.message, 'Alert!', {timeOut: 4000});
                   }
                   
                     
@@ -621,19 +637,21 @@ $(document).on('submit', "#smart-form-updateuser", function (event) {
                  dataType:'json',
                   cache: false,
            beforeSend: function() {
-          
+                     preLoadshow(true);
                     $('#submit').prop('disabled', true);  
                   },     
                  success: function (res) {
+                   preLoadshow(false);
+                    setTimeout(function(){  $('#submit').prop('disabled', false); },4000);
                   if(res.status=='success'){
                    toastr.success(res.message, 'Success', {timeOut: 3000});
                     setTimeout(function(){ window.location = base_url; },4000);
                   
                   }else{
-                    toastr.error(res.message, 'Alert!', {timeOut: 5000});
+                    toastr.error(res.message, 'Alert!', {timeOut: 4000});
                   }
                   
-                    $('#submit').prop('disabled', false);  
+                  //  $('#submit').prop('disabled', false);  
                  }
              });
              return false; // required to block normal submit since you used ajax

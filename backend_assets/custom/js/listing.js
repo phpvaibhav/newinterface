@@ -100,10 +100,11 @@ function(isConfirm) {
                  data: {srv:$(e).data('serid'),srs:$(e).data('sid')},
                   cache: false,
            beforeSend: function() {
-          
+                   preLoadshow(true);
               
                   },     
                  success: function (res) {
+                   preLoadshow(false);
                   if(res.status=='success'){
                    
                   
@@ -145,10 +146,11 @@ function(isConfirm) {
                  data: {srv:$(e).data('serid'),srs:$(e).data('sid')},
                   cache: false,
            beforeSend: function() {
-          
+           preLoadshow(true);
               
                   },     
                  success: function (res) {
+                   preLoadshow(true);
                   if(res.status=='success'){
                    
                   
@@ -191,9 +193,10 @@ function(isConfirm) {
                   cache: false,
            beforeSend: function() {
           
-              
+               preLoadshow(true);
                   },     
                  success: function (res) {
+                   preLoadshow(false);
                   if(res.status=='success'){
                    
                   
@@ -235,10 +238,11 @@ function(isConfirm) {
                  data: {use:$(e).data('useid') },
                   cache: false,
            beforeSend: function() {
-          
+           preLoadshow(true);
               
                   },     
                  success: function (res) {
+                   preLoadshow(false);
                   if(res.status=='success'){
                    
                   
