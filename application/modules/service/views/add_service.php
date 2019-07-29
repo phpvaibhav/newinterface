@@ -54,7 +54,7 @@
 				<section>
 				<!-- <label class="label">Image</label> -->
 				<div class="input input-file">
-				<span class="button"><input type="file" name="serviceImage[]" id="file" onchange="this.parentNode.nextSibling.value = this.value" accept="image/*" size="10" multiple="multiple">Browse</span><input type="text" readonly="">
+				<span class="button"><input type="file" name="serviceImage[]" id="file" onchange="this.parentNode.nextSibling.value = this.files.length+' Files'" accept="image/*" size="10" multiple="multiple">Browse</span><input type="text" readonly="">
 				</div>
 				
 				</section>

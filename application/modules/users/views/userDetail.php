@@ -271,7 +271,7 @@
 								</section>
 								<section>
 									<label class="input"> <i class="icon-append fa fa-phone"></i>
-									<input type="text" name="contact" maxlength="20" size="20" class="number-only" placeholder="Contact"  value="<?php echo $userData['contactNumber']; ?>">
+									<input type="text" name="contact" maxlength="20" size="20" class="number-only" placeholder="Contact"  value="<?php echo $userData['contactNumber']; ?>" data-mask="(999) 999-9999">
 									<b class="tooltip tooltip-bottom-right">Please enter your contact number</b> </label>
 								</section>
 							<!-- 	<section>
