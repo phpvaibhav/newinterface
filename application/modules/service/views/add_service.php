@@ -41,7 +41,7 @@
 				<section>
 					 <label class="label">Contact Number<span class="error">*</span></label>
 					<label class="input">
-						<input type="text" name="contactNumber" placeholder="Contact Number" maxlength="20" size="20"  class="number-only">
+						<input type="text" name="contactNumber" placeholder="Contact Number" maxlength="20" size="20"  data-mask="(999) 999-9999"  class="number-only">
 						</label>
 				</section>
 				<section>

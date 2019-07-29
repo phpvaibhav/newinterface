@@ -201,7 +201,7 @@
           <li class="<?php echo (strtolower($this->router->fetch_class()) == "service") ? "active open" : "" ?>">
             <a href="#" title="Services"><i class="fa fa-lg fa-fw fa-cog"></i> <span class="menu-item-parent">Services</span></a>
             <ul>
-              <li class="<?php echo ($this->uri->segment('2') == "" && $this->uri->segment('1') == "service") ? "active" : ""; ?>">
+              <li class="<?php echo (($this->uri->segment('2') == "" OR $this->uri->segment('2') == "serviceDetail") && $this->uri->segment('1') == "service") ? "active" : ""; ?>">
                 <a href="<?php echo base_url().'service'; ?>" title="Services"><span class="menu-item-parent">
                   <?php echo (isset($user['userType'])&& $user['userType']==2) ? "My Services" :"Services"; ?></span></a>
               </li>
