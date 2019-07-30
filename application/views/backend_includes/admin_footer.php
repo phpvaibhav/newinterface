@@ -170,6 +170,8 @@
     <script src="<?php echo $backend_assets ?>js/smart-chat-ui/smart.chat.ui.min.js"></script>
     <script src="<?php echo $backend_assets ?>js/smart-chat-ui/smart.chat.manager.min.js"></script>
 
+  <!-- PAGE RELATED PLUGIN(S) -->
+    <script src="<?php echo $backend_assets ?>js/plugin/superbox/superbox.min.js"></script>
     <!-- PAGE RELATED PLUGIN(S) 
     <script src="..."></script>-->
       <!-- PAGE RELATED PLUGIN(S) -->
@@ -180,6 +182,20 @@
 
  <script src="<?php echo $backend_assets; ?>custom/js/listing.js"></script>
  <script src="<?php echo $backend_assets; ?>custom/js/custom.js"></script>
+  <script>
+    
+    // DO NOT REMOVE : GLOBAL FUNCTIONS!
+    
+    $(document).ready(function() {
+      
+    //  pageSetUp();
+      
+      $('.superbox').SuperBox();
+
+    
+    })
+
+    </script>
     <script>
 
       $(document).ready(function() {
