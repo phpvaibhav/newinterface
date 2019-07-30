@@ -148,7 +148,7 @@
 						</div>
 						<hr>
 						<!-- comment -->
-						<form method="post" class="well padding-bottom-10">
+						<form method="post" id="commentForm" class="well padding-bottom-10">
 							<textarea rows="2" class="form-control" placeholder="What are you thinking?"></textarea>
 							<div class="margin-top-10">
 								<button type="submit" class="btn btn-sm btn-primary pull-right" disabled="">
