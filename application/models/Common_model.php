@@ -237,7 +237,7 @@ class Common_model extends CI_Model {
         }
     } //nd function
     function userInfo($where){
-        $userPath    = base_url().USER_AVATAR_PATH;
+        $userPath    = base_url().USER_AVATAR_PATH.'thumb/';
         $userDefault = base_url().USER_DEFAULT_AVATAR;
         $this->db->select('id,
             id as userId,

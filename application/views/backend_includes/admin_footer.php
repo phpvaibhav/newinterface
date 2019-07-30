@@ -170,8 +170,7 @@
     <script src="<?php echo $backend_assets ?>js/smart-chat-ui/smart.chat.ui.min.js"></script>
     <script src="<?php echo $backend_assets ?>js/smart-chat-ui/smart.chat.manager.min.js"></script>
 
-  <!-- PAGE RELATED PLUGIN(S) -->
-    <script src="<?php echo $backend_assets ?>js/plugin/superbox/superbox.min.js"></script>
+  
     <!-- PAGE RELATED PLUGIN(S) 
     <script src="..."></script>-->
       <!-- PAGE RELATED PLUGIN(S) -->
@@ -182,20 +181,7 @@
 
  <script src="<?php echo $backend_assets; ?>custom/js/listing.js"></script>
  <script src="<?php echo $backend_assets; ?>custom/js/custom.js"></script>
-  <script>
-    
-    // DO NOT REMOVE : GLOBAL FUNCTIONS!
-    
-    $(document).ready(function() {
-      
-    //  pageSetUp();
-      
-      $('.superbox').SuperBox();
 
-    
-    })
-
-    </script>
     <script>
 
       $(document).ready(function() {
@@ -269,7 +255,19 @@
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
+$(document).ready(function() {
+/* show lightbox when clicking a thumbnail */
+    $('a.thumb').click(function(event){
+      event.preventDefault();
+      var content = $('.modal-body');
+      content.empty();
+        var title = $(this).attr("title");
+        $('.modal-title').html(title);        
+        content.html($(this).html());
+        $(".modal-profile").modal({show:true});
+    });
 
+  });
     </script>
 
   </body>
