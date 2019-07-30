@@ -10,7 +10,11 @@
 							<div class="col-sm-12">
 								<div id="myCarousel" class="carousel fade profile-carousel">
 									<div class="air air-bottom-right padding-10">
-										<a href="javascript:void(0);"  <?php  if($userData['userType']!=$user['userType']):;?> onclick="statusChangeuserDtails(this);"<?php endif; ?> data-message="You want to change status!" data-useid="<?php echo encoding($userData['id']);?>" class="btn txt-color-white bg-color-teal btn-sm"><i class="fa fa-<?php echo $userData['status']?'check':'close'; ?>"></i><?php echo $userData['status']?' Active':' Inactive'; ?></a>&nbsp;<!--  <a href="javascript:void(0);" class="btn txt-color-white bg-color-pinkDark btn-sm"><i class="fa fa-link"></i> Connect</a> -->
+										<?php  if($userData['userType']!=$user['userType']):?>
+										<a href="javascript:void(0);"  <?php  if($userData['userType']!=$user['userType']):?> onclick="statusChangeuserDtails(this);"<?php endif; ?> data-message="You want to change status!" data-useid="<?php echo encoding($userData['id']);?>" class="btn txt-color-white bg-color-teal btn-sm"><i class="fa fa-<?php echo $userData['status']?'check':'close'; ?>"></i><?php echo $userData['status']?' Active':' Inactive'; ?></a> <?php else: ?> 
+										<label class="center-block padding-5 label label-<?php echo $userData['status']?'success':'danger'; ?>"> <i class="fa fa-<?php echo $userData['status']?'check':'close'; ?>"></i><?php echo $userData['status']?' Active':' Inactive'; ?></label>
+									<?php endif; ?> 
+										&nbsp;<!--  <a href="javascript:void(0);" class="btn txt-color-white bg-color-pinkDark btn-sm"><i class="fa fa-link"></i> Connect</a> -->
 									</div>
 									<div class="air air-top-left padding-10">
 										<h4 class="txt-color-white font-md"><?php echo date('M d,Y',strtotime($userData['crd'])); ?></h4>

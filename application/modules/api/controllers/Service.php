@@ -122,7 +122,7 @@ class Service extends Common_Service_Controller{
         $row[] = display_placeholder_text($serData->purchaseDate); 
         $row[] = display_placeholder_text($serData->contactNumber); 
         $row[] = display_placeholder_text($serData->comment); 
-        $row[] = display_placeholder_text($serData->statusShow); 
+        $row[] = '<span class="badge badge-info">'.display_placeholder_text($serData->statusShow).'</span>'; 
          $applyStatus = 1;
             $applyMsg = "";
             switch ($serData->status) {
@@ -147,7 +147,7 @@ class Service extends Common_Service_Controller{
 
             $linkDtail = base_url('service/serviceDetail/'.encoding($serData->serviceId));
             if($userType==1):
-            $action .= '<a href="'.$link.'" onclick="statusChange(this);" data-message="You want to change status!" data-serid="'.encoding($serData->serviceId).'" data-sid="'.encoding($applyStatus).'"  class="on-default edit-row table_action" title="View user">'.$applyMsg.'</a>';
+            $action .= '<a href="'.$link.'" onclick="statusChange(this);" data-message="You want to change service!" data-serid="'.encoding($serData->serviceId).'" data-sid="'.encoding($applyStatus).'"  class="on-default edit-row table_action" title="View user">'.$applyMsg.'</a>';
             endif;
             $action .= '&nbsp;&nbsp;<a href="'.$linkDtail.'" class="on-default edit-row table_action" title="Detail"><i class="fa fa-eye"></i></a>';
                
@@ -179,6 +179,7 @@ class Service extends Common_Service_Controller{
                     //send mail
                      $maildata['title']    = "Service Status";
                     $maildata['message']  = "Your service request is ".($status==2)? " Completed" : "in progress";
+                  
                     $subject = "Service Process";
                     $message=$this->load->view('emails/email',$maildata,TRUE);
                    
@@ -187,7 +188,8 @@ class Service extends Common_Service_Controller{
                     $this->smtp_email->send_mail($email,$subject,$message);
                     
                     //send mail
-                $response = array('status'=>SUCCESS,'message'=>ResponseMessages::getStatusCodeMessage(200));
+                      $showmsg  = "Service request is ".($status==2)? " Completed" : "in progress";
+                $response = array('status'=>SUCCESS,'message'=>$showmsg);
         }else{
            $response = array('status'=>FAIL,'message'=>ResponseMessages::getStatusCodeMessage(118));  
         }

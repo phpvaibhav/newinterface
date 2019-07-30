@@ -87,9 +87,9 @@ function statusChange(e){
   confirmButtonClass: "btn-danger",
   confirmButtonText: "Yes",
   cancelButtonText: "No",
-  closeOnConfirm: false,
+  closeOnConfirm: true,
   closeOnCancel: true,
-  showLoaderOnConfirm: true
+ // showLoaderOnConfirm: true
 },
 function(isConfirm) {
   if (isConfirm) {
@@ -108,7 +108,7 @@ function(isConfirm) {
                   if(res.status=='success'){
                    
                   
-                   swal("Success", "Your process  has been successfully done.", "success");
+                    toastr.success(res.message, 'Success', {timeOut: 3000});
                  $('#service_list').DataTable().ajax.reload();
                   }else{
                     toastr.error(res.message, 'Alert!', {timeOut: 5000});
@@ -133,9 +133,9 @@ function statusChangeDetail(e){
   confirmButtonClass: "btn-danger",
   confirmButtonText: "Yes",
   cancelButtonText: "No",
-  closeOnConfirm: false,
+  closeOnConfirm: true,
   closeOnCancel: true,
-  showLoaderOnConfirm: true
+ // showLoaderOnConfirm: true
 },
 function(isConfirm) {
   if (isConfirm) {
@@ -154,8 +154,9 @@ function(isConfirm) {
                   if(res.status=='success'){
                    
                   
-                   swal("Success", "Your process  has been successfully done.", "success");
-                 location.reload();
+                    toastr.success(res.message, 'Success', {timeOut: 3000});
+                     setTimeout(function(){ location.reload(); },4000);
+                   
                   }else{
                     toastr.error(res.message, 'Alert!', {timeOut: 5000});
                   }
@@ -179,9 +180,9 @@ function statusChangeuser(e){
   confirmButtonClass: "btn-danger",
   confirmButtonText: "Yes",
   cancelButtonText: "No",
-  closeOnConfirm: false,
+  closeOnConfirm: true,
   closeOnCancel: true,
-  showLoaderOnConfirm: true
+ // showLoaderOnConfirm: true
 },
 function(isConfirm) {
   if (isConfirm) {
@@ -199,8 +200,8 @@ function(isConfirm) {
                    preLoadshow(false);
                   if(res.status=='success'){
                    
-                  
-                   swal("Success", "Your process  has been successfully done.", "success");
+                   toastr.success(res.message, 'Success', {timeOut: 3000});
+                 //  swal("Success", "Your process  has been successfully done.", "success");
                  $('#user_list').DataTable().ajax.reload();
                   }else{
                     toastr.error(res.message, 'Alert!', {timeOut: 5000});
@@ -225,9 +226,9 @@ function statusChangeuserDtails(e){
   confirmButtonClass: "btn-danger",
   confirmButtonText: "Yes",
   cancelButtonText: "No",
-  closeOnConfirm: false,
+  closeOnConfirm: true,
   closeOnCancel: true,
-  showLoaderOnConfirm: true
+ // showLoaderOnConfirm: true
 },
 function(isConfirm) {
   if (isConfirm) {
@@ -245,8 +246,8 @@ function(isConfirm) {
                    preLoadshow(false);
                   if(res.status=='success'){
                    
-                  
-                   swal("Success", "Your process  has been successfully done.", "success");
+                    toastr.success(res.message, 'Success', {timeOut: 3000});
+                  // swal("Success", "Your process  has been successfully done.", "success");
                   
                    setTimeout(function(){ location.reload(); },4000);
                   }else{

@@ -27,11 +27,14 @@ class Users extends Common_Service_Controller{
         $row[] = display_placeholder_text($serData->fullName); 
         $row[] = display_placeholder_text($serData->email); 
         $row[] = display_placeholder_text($serData->contactNumber); 
-        $row[] = display_placeholder_text($serData->statusShow); 
-         
+        if($serData->status){
+        $row[] = '<label class="label label-success">'.$serData->statusShow.'</label>';
+        }else{ 
+        $row[] = '<label class="label label-danger">'.$serData->statusShow.'</label>'; 
+        } 
             $link  ='javascript:void(0)';
             $action .= "";
-        if($serData->statusShow){
+        if($serData->status){
 
             $action .= '<a href="'.$link.'" onclick="statusChangeuser(this);" data-message="You want to change status!" data-useid="'.encoding($serData->id).'"  class="on-default edit-row table_action" title="status"><i class="fa fa-check" aria-hidden="true"></i></a>';
         }else{
@@ -66,8 +69,10 @@ class Users extends Common_Service_Controller{
          $dataExist=$this->common_model->is_data_exists('users',$where);
         if($dataExist){
             $status = $dataExist->status ?0:1;
+
              $dataExist=$this->common_model->updateFields('users',array('status'=>$status),$where);
-                $response = array('status'=>SUCCESS,'message'=>ResponseMessages::getStatusCodeMessage(200));
+              $showmsg  =($status==1)? "User request is Active" : "User request is Inactive";
+                $response = array('status'=>SUCCESS,'message'=>$showmsg);
         }else{
            $response = array('status'=>FAIL,'message'=>ResponseMessages::getStatusCodeMessage(118));  
         }
