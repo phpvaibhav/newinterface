@@ -195,6 +195,27 @@ class Service extends Common_Service_Controller{
         }
         $this->response($response);
     }//end function
+    function serviceComment_post(){
+        $authCheck  = $this->check_service_auth();
+        $authToken  = $this->authData->authToken;
+        $userId     = $this->authData->id;
+        $this->form_validation->set_rules('comment', 'comment', 'trim|required');
+          if($this->form_validation->run() == FALSE){
+            $response = array('status' => FAIL, 'message' => strip_tags(validation_errors()));
+           
+        }else{
+            $data_val['comment']    = $this->post('comment');
+            $data_val['serviceId']  = $this->post('serviceId');
+            $data_val['userId']     = $userId ;
+            $result = $this->common_model->insertData('comments',$data_val);
+            if($result){
+                 $response = array('status'=>SUCCESS,'message'=>"comment added successfully.");
+            }else{
+                $response = array('status'=>FAIL,'message'=>ResponseMessages::getStatusCodeMessage(118)); 
+            }
+        }
+        $this->response($response);
+    }//endfunction
 
 
 

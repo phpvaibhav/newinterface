@@ -140,6 +140,37 @@
 											
 										</ul>
 								</li>
+								<?php
+
+								if(!empty($comments)): foreach ($comments as $k => $comment){
+										$commentuser =  '';
+										$commentImage = base_url().'backend_assets/img/avatars/sunny.png';
+									if($serviceUser['userId']==$comment->userId){
+										$commentuser =  $serviceUser['fullName'];
+										$commentImage =  $serviceUser['profileImage'];
+										$messagereply ="";
+									}else{
+										$commentuser =  $user['fullName']? $user['fullName'] :'';
+										$commentImage =  $user['profileImage']? $user['profileImage'] :base_url().'backend_assets/img/avatars/sunny.png';
+										$messagereply ="message-reply";
+									}
+
+
+								 ?>
+							<li class="message <?php echo $messagereply; ?>" style="margin-top:33px;">
+										<img src="<?php echo $commentImage; ?>" class="online" style="height: 50px;width: 50px;" alt="user">
+										<span class="message-text"> <a href="javascript:void(0);" class="username"><?php echo $commentuser; ?></a> <?php echo trim($comment->comment); ?> </span>
+
+											<ul class="list-inline font-xs ">
+												<li class="pull-right">
+													<a href="javascript:void(0);" class="text-info"><i class="fa fa-time"></i> <?php echo date("d/m/Y H:i A",strtotime($comment->crd));  ?></a>
+												</li>
+												
+											</ul>
+									</li> 
+								<?php
+								 } endif; 
+								 ?>
 								<!-- <li class="message message-reply">
 									<img src="img/avatars/3.png" class="online" alt="user">
 									<span class="message-text"> <a href="javascript:void(0);" class="username">Serman Syla <small class="text-muted pull-right ultra-light"> 2 Minutes ago </small></a> Haha! Yeah I know what you mean. Thanks for the file Sadi! <i class="fa fa-smile-o txt-color-orange"></i> </span>	
@@ -148,10 +179,15 @@
 						</div>
 						<hr>
 						<!-- comment -->
-						<form method="post" id="commentForm" class="well padding-bottom-10">
-							<textarea rows="2" class="form-control" placeholder="What are you thinking?"></textarea>
+						<form method="post" action="<?php echo base_url().'api/service/serviceComment' ?>" id="commentForm" class="well padding-bottom-10">
+							<fieldset>
+				<section>
+					<textarea rows="2" class="form-control" name="comment" placeholder="What are you thinking?" required></textarea>
+							<input type="hidden" name="serviceId" value="<?php echo $service['serviceId']; ?>">
+				</section>
+						</fieldset>	
 							<div class="margin-top-10">
-								<button type="submit" class="btn btn-sm btn-primary pull-right" disabled="">
+								<button type="submit" id="submit" class="btn btn-sm btn-primary pull-right" >
 									Comment
 								</button>
 							</div>

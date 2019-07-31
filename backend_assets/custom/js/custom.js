@@ -658,3 +658,52 @@ $(document).on('submit', "#smart-form-updateuser", function (event) {
          }
 
    });
+// comment service
+$("#commentForm").validate({
+         rules: {
+        comment: {
+          required: true,
+        } 
+      },
+      messages: {
+        comment:{
+               required: "Please enter comment.",
+        }
+      },
+      // Do not change code below
+          errorPlacement : function(error, element) {
+            error.insertAfter(element.parent());
+          },
+          // ajax 
+            submitHandler: function (form) {
+              toastr.clear();
+              $('#submit').prop('disabled', true);
+            $.ajax({
+                 type: "POST",
+                 url: $(form).attr('action'),
+                  headers: { 'authToken': authToken },
+                 data: $(form).serialize(),
+                 dataType:'json',
+                  cache: false,
+           beforeSend: function() {
+                     preLoadshow(true);
+                    $('#submit').prop('disabled', true);  
+                  },     
+                 success: function (res) {
+                    preLoadshow(false);
+                    setTimeout(function(){  $('#submit').prop('disabled', false); },4000);
+                  if(res.status=='success'){
+                   toastr.success(res.message, 'Success', {timeOut: 3000});
+                      setTimeout(function(){ location.reload(); },3000);
+                  
+                  }else{
+                    toastr.error(res.message, 'Alert!', {timeOut: 4000});
+                  }
+                  
+                  //  $('#submit').prop('disabled', false);  
+                 }
+             });
+             return false; // required to block normal submit since you used ajax
+         }
+
+   });
