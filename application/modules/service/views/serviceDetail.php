@@ -40,20 +40,20 @@
 					<div class="col-sm-12 col-md-12 col-lg-12 ">
 						<ul class="list-group no-margin">
 							<li class="list-group-item">
-								<span class="pull-right"><?php echo ucfirst($service['productName']); ?></span> <b>Service</b>
+								<span class="pull-right"><?php echo ucfirst($service['productName']); ?></span> <b>Service Name</b>
 							</li>	
 							<li class="list-group-item">
 								<span class="pull-right"><?php echo ucfirst($service['vendor']); ?></span> <b>Vendor</b>
 							</li>
 							<li class="list-group-item">
-								<span class="pull-right"><?php echo $service['serialNumber']; ?></span> <b>Serial number</b>
+								<span class="pull-right"><?php echo $service['serialNumber']; ?></span> <b>Serial Number</b>
 							</li>	
 						
 							<li class="list-group-item">
 								<span class="pull-right"><?php echo date("d/m/Y",strtotime($service['purchaseDate'])); ?></span> <b>Purchase Date</b>
 							</li>
 							<li class="list-group-item">
-								<span class="pull-right"><?php echo $service['contactNumber']; ?></span> <b>Contact number</b>
+								<span class="pull-right"><?php echo $service['contactNumber']; ?></span> <b>Contact Number</b>
 							</li>
 							<li class="list-group-item">
 								<span class="pull-right"><?php echo ucfirst($serviceUser['fullName']); ?></span> <b>Created By </b>
