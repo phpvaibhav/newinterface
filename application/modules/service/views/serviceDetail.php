@@ -145,21 +145,17 @@
 								if(!empty($comments)): foreach ($comments as $k => $comment){
 										$commentuser =  '';
 										$commentImage = base_url().'backend_assets/img/avatars/sunny.png';
-									if($serviceUser['userId']==$comment->userId){
-										$commentuser =  $serviceUser['fullName'];
-										$commentImage =  $serviceUser['profileImage'];
-										$messagereply ="";
-									}else{
-										$commentuser =  $user['fullName']? $user['fullName'] :'';
-										$commentImage =  $user['profileImage']? $user['profileImage'] :base_url().'backend_assets/img/avatars/sunny.png';
+									if($comment->userType==1){
 										$messagereply ="message-reply";
+									}else{
+										$messagereply ="";
 									}
 
 
 								 ?>
 							<li class="message <?php echo $messagereply; ?>" style="margin-top:33px;">
-										<img src="<?php echo $commentImage; ?>" class="online" style="height: 50px;width: 50px;" alt="user">
-										<span class="message-text"> <a href="javascript:void(0);" class="username"><?php echo $commentuser; ?></a> <?php echo trim($comment->comment); ?> </span>
+										<img src="<?php echo $comment->profileImage;; ?>" class="online" style="height: 50px;width: 50px;" alt="user">
+										<span class="message-text"> <a href="javascript:void(0);" class="username"><?php echo $comment->fullName; ?></a> <?php echo trim($comment->comment); ?> </span>
 
 											<ul class="list-inline font-xs ">
 												<li class="pull-right">

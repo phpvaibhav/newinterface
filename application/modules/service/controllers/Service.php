@@ -35,7 +35,8 @@ class Service extends Common_Back_Controller {
         $data['service'] = $service;
         $data['images'] = $this->common_model->getAll('images',array('serviceId'=>$serviceId));
         $data['serviceUser'] = $this->common_model->userInfo(array('id'=>$service['userId']));
-        $data['comments'] = $this->common_model->getAll('comments',array('serviceId'=>$serviceId));
+         $this->load->model('service_model');
+        $data['comments'] = $this->service_model->getComments(array('comments.serviceId'=>$serviceId));
         $this->load->admin_render('serviceDetail', $data);
     }//end function
    

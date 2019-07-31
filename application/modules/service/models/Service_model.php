@@ -118,6 +118,24 @@ class Service_model extends CI_Model {
     	$this->db->where(array('serviceId'=>$data['serviceId']));
     	$query = $this->db->get();
     	return $query->row();
-    }
+    }//end function
+    function getComments($where){
+        $data = array();
+        $userPath    = base_url().USER_AVATAR_PATH.'thumb/';
+        $userDefault = base_url().USER_DEFAULT_AVATAR;
+        $this->db->select('comments.commentId,comments.serviceId,comments.comment,comments.crd,users.fullName,users.userType,(case when (profileImage = "") 
+        THEN "'.$userDefault.'" ELSE
+        concat("'.$userPath.'",profileImage) 
+        END) as profileImage');
+        $this->db->from('comments');
+        $this->db->join('users','users.id=comments.userId');
+        $this->db->where($where);
+        $sql= $this->db->get();
+        if($sql->num_rows()){
+            $data = $sql->result();
+        }
+      
+        return $data;
+    }//end function
 
 }
