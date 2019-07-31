@@ -187,7 +187,7 @@
 				</section>
 						</fieldset>	
 							<div class="margin-top-10">
-								<button type="submit" id="submit" class="btn btn-sm btn-primary pull-right" >
+								<button type="submit" id="submit" class="btn btn-sm btn-primary pull-right" <?php echo ($service['status']==2)?'disabled': ''; ?> >
 									Comment
 								</button>
 							</div>
