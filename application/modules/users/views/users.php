@@ -39,27 +39,30 @@
 
 					<!-- widget content -->
 					<div class="widget-body padding">
+						<div class="table-responsive">
 
-						<table id="user_list" class="table table-striped table-bordered table-hover" width="100%">
-							<thead>			                
-								<tr>
-									<th data-hide="phone">ID</th>
-									<th data-class="expand">Image</th>
-									<th data-hide="phone">Full name</th>
-									<th data-hide="phone,tablet">Email</th>
+
+							<table id="user_list" class="table table-striped table-bordered table-hover" width="100%">
+								<thead>			                
+									<tr>
+										<th data-hide="phone">ID</th>
+										<th data-class="expand">Image</th>
+										<th data-hide="phone">Full name</th>
+										<th data-hide="phone,tablet">Email</th>
+										
+										<th data-hide="phone,tablet">Contact number</th>
+										<th data-hide="phone,tablet">Status</th>
+										<th data-hide="phone,tablet">Action</th>
+										
+									</tr>
+								</thead>
+								<tbody>
 									
-									<th data-hide="phone,tablet">Contact number</th>
-									<th data-hide="phone,tablet">Status</th>
-									<th data-hide="phone,tablet">Action</th>
-									
-								</tr>
-							</thead>
-							<tbody>
 								
-							
-							</tbody>
-						</table>
+								</tbody>
+							</table>
 
+						</div>
 					</div>
 					<!-- end widget content -->
 
