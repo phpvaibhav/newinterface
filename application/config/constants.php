@@ -106,7 +106,7 @@ define('USER_DEFAULT_AVATAR', 'backend_assets/img/avatars/1.png'); //user placeh
 
 //Title, Site name, Copyright etc
 define('SITE_NAME','InterFace'); //your project name
-define('COPYRIGHT','&copy; ' . date('Y') . ' - ' . date("Y",strtotime("-1 year")). ', InterFace. All rights reserved.');
+define('COPYRIGHT','&copy; ' . date('Y') . ', InterFace. All rights reserved.');
 define('INFO_EMAIL','info@project.com'); //your project name
 
 

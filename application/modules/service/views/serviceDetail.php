@@ -175,18 +175,19 @@
 						</div>
 						<hr>
 						<!-- comment -->
-						<form method="post" action="<?php echo base_url().'api/service/serviceComment' ?>" id="commentForm" class="well padding-bottom-10">
+						<form method="post" action="<?php echo base_url().'api/service/serviceComment' ?>" id="commentForm" class="well padding-bottom-10"  <?php echo ($service['status']==2)?'style=display:none;': ''; ?> >
 							<fieldset>
-				<section>
+				<section >
 					<textarea rows="2" class="form-control" name="comment" placeholder="What are you thinking?" required></textarea>
 							<input type="hidden" name="serviceId" value="<?php echo $service['serviceId']; ?>">
-				</section>
-						</fieldset>	
 							<div class="margin-top-10">
 								<button type="submit" id="submit" class="btn btn-sm btn-primary pull-right" <?php echo ($service['status']==2)?'disabled': ''; ?> >
 									Comment
 								</button>
 							</div>
+				</section>
+						</fieldset>	
+							
 						</form>
 				
 						<!-- comment -->

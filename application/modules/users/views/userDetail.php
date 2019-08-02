@@ -270,7 +270,7 @@
 
 								<section>
 								<label class="input"> <i class="icon-append fa fa-envelope"></i>
-									<input type="email" name="email" placeholder="Email address" value="<?php echo $userData['email']; ?>">
+									<input type="email" name="email" placeholder="Email address" value="<?php echo $userData['email']; ?>" <?php echo $user['userType']==1?'':'readonly'; ?>>
 									<b class="tooltip tooltip-bottom-right">Please enter your registered email address</b> </label>
 								</section>
 								<section>

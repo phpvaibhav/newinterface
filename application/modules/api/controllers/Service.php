@@ -122,17 +122,22 @@ class Service extends Common_Service_Controller{
         $row[] = display_placeholder_text($serData->purchaseDate); 
         $row[] = display_placeholder_text($serData->contactNumber); 
         $row[] = display_placeholder_text($serData->comment); 
-        $row[] = '<span class="badge badge-info">'.display_placeholder_text($serData->statusShow).'</span>'; 
+     
          $applyStatus = 1;
             $applyMsg = "";
             switch ($serData->status) {
                 case '0':
                     $applyStatus =1;
                     $applyMsg = 'Click to Process';
+                       $row[] = '<span class="badge badge bg-color-red">'.display_placeholder_text($serData->statusShow).'</span>'; 
                     break;
                 case '1':
                     $applyStatus =2;
                     $applyMsg = 'Click to Complete';
+                       $row[] = '<span class="badge badge bg-color-blue">'.display_placeholder_text($serData->statusShow).'</span>'; 
+                    break;
+                 case '2': 
+                     $row[] = '<span class="badge bg-color-green">'.display_placeholder_text($serData->statusShow).'</span>'; 
                     break;
                 
                 default:
@@ -147,7 +152,9 @@ class Service extends Common_Service_Controller{
 
             $linkDtail = base_url('service/serviceDetail/'.encoding($serData->serviceId));
             if($userType==1):
-            $action .= '<a href="'.$link.'" onclick="statusChange(this);" data-message="You want to change service!" data-serid="'.encoding($serData->serviceId).'" data-sid="'.encoding($applyStatus).'"  class="on-default edit-row table_action" title="View user">'.$applyMsg.'</a>';
+            if($serData->status!=2):
+            $action .= '<a href="'.$link.'" onclick="statusChange(this);" data-message="You want to change service!" data-serid="'.encoding($serData->serviceId).'" data-sid="'.encoding($applyStatus).'"  class="on-default edit-row table_action" title="View user">'.$applyMsg.'</a>&nbsp;&nbsp;|';
+            endif;
             endif;
             $action .= '&nbsp;&nbsp;<a href="'.$linkDtail.'" class="on-default edit-row table_action" title="Detail"><i class="fa fa-eye"></i></a>';
                
