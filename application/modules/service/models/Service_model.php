@@ -13,7 +13,7 @@ class Service_model extends CI_Model {
         "Unknown" 
         END) as statusShow'); //set column field database for datatable orderable
     var $column_search = array('s.productName','s.vendor'); //set column field database for datatable searchable 
-    var $order = array('s.serviceId' => 'ASC');  // default order
+    var $order = array('s.serviceId' => 'DESC');  // default order
     var $where = array();
     var $group_by = 's.serviceId'; 
 
