@@ -308,7 +308,7 @@ class Service extends Common_Back_Controller {
     <dt><b>Comment</b></dt>
     <dd>'.trim($service['comment']).'</dd>';
     if(!empty($images)):
-         $content .= '</dl><dl><dt><b>Serivce Image</b></dt></dl>
+         $content .= '</dl><dl><dt><b>Service Image</b></dt></dl>
 <div><br />';
     endif;
     foreach ($images as $k => $img) {
