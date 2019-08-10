@@ -287,6 +287,18 @@
           <!-- col -->
           <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
             <!-- sparks -->
+                 <!-- sparks -->
+         <ul id="sparks">
+            <?php 
+              if(isset($recordSet) && !empty($recordSet)):
+                foreach ($recordSet as $k => $record) {
+                   echo $record;
+                 } 
+              endif;
+            ?>
+             
+            </ul>
+            <!-- end sparks -->
          <!--    <ul id="sparks">
               <li class="sparks-info">
                 <h5> My Income <span class="txt-color-blue">$47,171</span></h5>
