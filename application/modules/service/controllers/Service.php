@@ -313,8 +313,7 @@ class Service extends Common_Back_Controller {
     endif;
     foreach ($images as $k => $img) {
         $image1 = base_url().'uploads/service/'.$img->image;
- $content .= '
-<img src="'.$image1.'" alt="" width="100" height="100" border="0" />';
+ $content .= '<img src="'.$image1.'" alt="" width="100" height="100" border="0" />&nbsp;';
     }
    $content .= '</div>';
         $pdf->writeHTML($content, true, false, true, false, '');
