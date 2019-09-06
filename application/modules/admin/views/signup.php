@@ -25,13 +25,6 @@
 						<b class="tooltip tooltip-bottom-right">Please enter your email</b> </label>
 				</section>
 				<section>
-					<label class="label">Contact Number<span class="error">*</span></label>
-					<label class="input"> <i class="icon-append fa fa-phone"></i>
-					<input type="text" name="contact" maxlength="20" size="20" class="number-only" placeholder="Contact" data-mask="(999) 999-9999">
-					<b class="tooltip tooltip-bottom-right">Please enter your contact number</b> </label>
-				</section>
-
-				<section>
 					<label class="label">Password<span class="error">*</span></label>
 					<label class="input"> <i class="icon-append fa fa-lock"></i>
 						<input type="password" name="password" placeholder="Password" id="password">
@@ -44,6 +37,33 @@
 						<input type="password" name="passwordConfirm" placeholder="Confirm password">
 						<b class="tooltip tooltip-bottom-right">Please re-enter password</b> </label>
 				</section>
+				<section>
+					<label class="label">Contact Number<span class="error">*</span></label>
+					<label class="input"> <i class="icon-append fa fa-phone"></i>
+					<input type="text" name="contact" maxlength="20" size="20" class="number-only" placeholder="Contact" data-mask="(999) 999-9999">
+					<b class="tooltip tooltip-bottom-right">Please enter your contact number</b> </label>
+				</section>
+				<section>
+					<label class="label">Shipping Address<span class="error">*</span></label>
+					<label class="input"> <i class="icon-append fa fa-location-arrow"></i>
+					<input type="text" name="shippingAddress" maxlength="50" size="50" class="" placeholder="Shipping Address" >
+					<b class="tooltip tooltip-bottom-right">Please enter your shipping address</b> </label>
+				</section>
+
+				<section>
+					<label class="label">VAT Number<span class="error">*</span></label>
+					<label class="input"> <i class="icon-append fa fa-list"></i>
+					<input type="text" name="vatNumber" maxlength="50" size="50" class="" placeholder="VAT Number" >
+					<b class="tooltip tooltip-bottom-right">Please enter your vat Number</b> </label>
+				</section>
+				<section>
+					<label class="label">Invoice Details</label>
+					<label class="textarea">
+						<textarea name="invoiceDetail" placeholder="Invoice Details" maxlength="700"></textarea>
+						</label>
+				</section>
+
+			
 			</fieldset>
 			<footer>
 				<button type="submit" id="submit" class="btn btn-primary">

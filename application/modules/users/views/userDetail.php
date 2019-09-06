@@ -283,9 +283,27 @@
 									<textarea name="comment" placeholder="Comment" maxlength="500"></textarea>
 									</label>
 								</section> -->
+<section>
+					<label class="label">Shipping Address<span class="error">*</span></label>
+					<label class="input"> <i class="icon-append fa fa-location-arrow"></i>
+					<input type="text" name="shippingAddress" value="<?php echo $userData['shippingAddress']; ?>" maxlength="50" size="50" class="" placeholder="Shipping Address" >
+					<b class="tooltip tooltip-bottom-right">Please enter your shipping address</b> </label>
+				</section>
 
+				<section>
+					<label class="label">VAT Number<span class="error">*</span></label>
+					<label class="input"> <i class="icon-append fa fa-list"></i>
+					<input type="text" name="vatNumber" value="<?php echo $userData['vatNumber']; ?>" maxlength="50" size="50" class="" placeholder="VAT Number" >
+					<b class="tooltip tooltip-bottom-right">Please enter your vat Number</b> </label>
+				</section>
+				<section>
+					<label class="label">Invoice Details</label>
+					<label class="textarea">
+						<textarea name="invoiceDetail" placeholder="Invoice Details" maxlength="700"><?php echo $userData['invoiceDetail']; ?></textarea>
+						</label>
+				</section>
 								<section>
-								<!-- <label class="label">Image</label> -->
+								<label class="label">Profile</label>
 								<div class="input input-file">
 								<span class="button"><input type="file" name="profileImage" id="file" onchange="this.parentNode.nextSibling.value = this.value" accept="image/*">Browse</span><input type="text" readonly="">
 								</div>

@@ -114,9 +114,10 @@ class Service extends Common_Back_Controller {
             <table border="0" cellspacing="1" cellpadding="4">
                 <tr style="background-color:#707070;color:#FFFFFF;"  nobr="true">
                 <th>Product Name</th>
-                <th>Vendor</th>
-                <th>Serial Number</th>
-                <th>Date</th>
+                <th>Manufacture</th>
+                <th>Model Name</th>
+                <th>Series Number</th>
+                <th>Date of Purchase</th>
                 <th>Contact Number</th>
                 <th>Status</th>
                 
@@ -136,6 +137,7 @@ class Service extends Common_Back_Controller {
            $content .='<tr nobr="true" style="color:#000; '.$colr.'">';
            $content .='<td>'.$service->productName.'</td>';
            $content .='<td>'.$service->vendor.'</td>';
+           $content .='<td>'.$service->modelName.'</td>';
            $content .='<td>'.$service->serialNumber.'</td>';
            $content .='<td>'.date('d-m-Y',strtotime($service->purchaseDate)).'</td>';
            $content .='<td>'.$service->contactNumber.'</td>';
@@ -257,14 +259,14 @@ class Service extends Common_Back_Controller {
         $content .= '
             
             <table border="0" cellspacing="1" cellpadding="4">
-                <tr style="background-color:#707070;color:#FFFFFF;"  nobr="true">
+                  <tr style="background-color:#707070;color:#FFFFFF;"  nobr="true">
                 <th>Product Name</th>
-                <th>Vendor</th>
-                <th>Serial Number</th>
-                <th>Date</th>
+                <th>Manufacture</th>
+                <th>Model Name</th>
+                <th>Series Number</th>
+                <th>Date of Purchase</th>
                 <th>Contact Number</th>
                 <th>Status</th>
-                
                 </tr>';
            
           $content .= '</table>';
@@ -277,6 +279,7 @@ class Service extends Common_Back_Controller {
            $content .='<tr nobr="true" style="color:#000; '.$colr.'">';
            $content .='<td>'.$service['productName'].'</td>';
            $content .='<td>'.$service['vendor'].'</td>';
+           $content .='<td>'.$service['modelName'].'</td>';
            $content .='<td>'.$service['serialNumber'].'</td>';
            $content .='<td>'.date('d-m-Y',strtotime($service['purchaseDate'])).'</td>';
            $content .='<td>'.$service['contactNumber'].'</td>';
@@ -305,14 +308,19 @@ class Service extends Common_Back_Controller {
         $content .='</table>';
         $content .='<br/>
         <dl>
-    <dt><b>Comment</b></dt>
-    <dd>'.trim($service['comment']).'</dd>';
+    <dt><b>Fault Description</b></dt>
+    <dd>'.trim($service['faultDescription']).'</dd>';
     if(!empty($images)):
-         $content .= '</dl><dl><dt><b>Service Image</b></dt></dl>
+         $content .= '</dl><dl><dt><b>Receipt of Purchase</b></dt></dl>
 <div><br />';
     endif;
     foreach ($images as $k => $img) {
+      if($img->type=='image'){
         $image1 = base_url().'uploads/service/'.$img->image;
+      }else{
+         $image1 = base_url().'backend_assets/img/attechment.png';
+      }
+
  $content .= '<img src="'.$image1.'" alt="" width="100" height="100" border="0" />&nbsp;';
     }
    $content .= '</div>';

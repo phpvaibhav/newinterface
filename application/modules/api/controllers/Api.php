@@ -39,6 +39,9 @@ class Api extends Common_Service_Controller{
                 $userData['email']              =   $email;
                 $userData['userType']           =   2;
                 $userData['contactNumber']      =   $this->post('contact');
+                $userData['shippingAddress']      =   $this->post('shippingAddress');
+                $userData['vatNumber']      =   $this->post('vatNumber');
+                $userData['invoiceDetail']      =   $this->post('invoiceDetail');
                 $userData['authToken']          =   $authtoken;
                 $userData['password']           =   password_hash($this->post('password'), PASSWORD_DEFAULT);
                 $userData['authToken']          =   $authtoken;
@@ -80,8 +83,8 @@ class Api extends Common_Service_Controller{
                         $message=$this->load->view('emails/email',$maildata,TRUE);
                         $emails = $this->common_model->adminEmails();
                         if(!empty($emails)){
-                       // $this->load->library('smtp_email');
-                       // $this->smtp_email->send_mail_multiple($emails,$subject,$message);
+                       $this->load->library('smtp_email');
+                       $this->smtp_email->send_mail_multiple($emails,$subject,$message);
                         }
                     //send mail
                     $response = array('status'=>SUCCESS,'message'=>ResponseMessages::getStatusCodeMessage(110), 'messageCode'=>'normal_reg','users'=>$result['returnData']);

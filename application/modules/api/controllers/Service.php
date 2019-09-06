@@ -13,10 +13,11 @@ class Service extends Common_Service_Controller{
         $authToken = $this->authData->authToken;
         $userId = $this->authData->id;
         $this->form_validation->set_rules('productName', 'product name', 'trim|required');
-        $this->form_validation->set_rules('vendor', 'vendor', 'trim|required');
+        $this->form_validation->set_rules('vendor', 'manufacture', 'trim|required');
+        $this->form_validation->set_rules('modelName', 'model name', 'trim|required');
         $this->form_validation->set_rules('serialNumber', 'serial number', 'trim|required');
-        $this->form_validation->set_rules('purchaseDate', 'purchase date', 'trim|required');
-        $this->form_validation->set_rules('comment', 'comment', 'trim|required');
+        $this->form_validation->set_rules('purchaseDate', 'date of purchase', 'trim|required');
+        $this->form_validation->set_rules('faultDescription', 'fault description', 'trim|required');
         $this->form_validation->set_rules('contactNumber', 'contact number', 'trim|required');
     
         if($this->form_validation->run() == FALSE){
@@ -27,10 +28,11 @@ class Service extends Common_Service_Controller{
         	 $data_val = array();
         	 $data_val['productName'] 	= $this->post('productName');
         	 $data_val['vendor'] 		= $this->post('vendor');
+             $data_val['modelName']        = $this->post('modelName');
         	 $data_val['serialNumber'] 	= $this->post('serialNumber');
         	 $purchaseDate 				= $this->post('purchaseDate');
         	 $data_val['purchaseDate'] 	= date('Y-m-d',strtotime($purchaseDate));
-        	 $data_val['comment'] 		= $this->post('comment');
+        	 $data_val['faultDescription'] 		= $this->post('faultDescription');
         	 $data_val['contactNumber'] = $this->post('contactNumber');
         	 $data_val['userId'] = $userId;
           
@@ -62,9 +64,12 @@ class Service extends Common_Service_Controller{
                 
                   if(!empty($images)):
                     $j=0;
+                
                     for ($i=0; $i <sizeof($images) ; $i++) { 
                         if(isset($images[$i]['name']) && isset($images[$i]['type'])):
+                            $imageType = explode("/",$images[$i]['type']);
                             $serviceImage[$j]['image'] =  $images[$i]['name'];
+                            $serviceImage[$j]['type'] =  isset($imageType[0]) ?$imageType[0]:'image';
                             $serviceImage[$j]['serviceId'] =  $result;
                             $j++;
                         endif;
@@ -77,13 +82,13 @@ class Service extends Common_Service_Controller{
                 //email send
                                         //send mail
                         $maildata['title']    = $this->authData->fullName." has been  created Interface service";
-                        $maildata['message']  = "<table><tr><td>Product</td><td>".$data_val['productName']."</td></tr><tr><td>Vendor</td><td>".$data_val['vendor']."</td></tr><tr><td>Serial number</td><td>".$data_val['serialNumber']."</td></tr><tr><td>Purchase Date</td><td>".$purchaseDate."</td></tr><tr><td>Contact number</td><td>".$data_val['contactNumber']."</td></tr><tr><td>Comment</td><td>".$data_val['comment']."</td></tr></table>";
+                        $maildata['message']  = "<table><tr><td>Product</td><td>".$data_val['productName']."</td></tr><tr><td>Manufacture</td><td>".$data_val['vendor']."</td></tr><tr><td>Serial number</td><td>".$data_val['serialNumber']."</td></tr><tr><td>Date of Purchase</td><td>".$purchaseDate."</td></tr><tr><td>Contact number</td><td>".$data_val['contactNumber']."</td></tr><tr><td>Fault Description</td><td>".$data_val['faultDescription']."</td></tr></table>";
                         $subject = "Service Request";
                         $message=$this->load->view('emails/email',$maildata,TRUE);
                         $emails = $this->common_model->adminEmails();
                         if(!empty($emails)){
                         $this->load->library('smtp_email');
-                        $this->smtp_email->send_mail_multiple($emails,$subject,$message);
+                       $this->smtp_email->send_mail_multiple($emails,$subject,$message);
                         }
                     //send mail
                 //email send
@@ -118,10 +123,11 @@ class Service extends Common_Service_Controller{
       //  $row[] = '<img src='.make_user_img_url($usersData->profileImage).' alt="user profile" width="65%">';
         $row[] = display_placeholder_text($serData->productName); 
         $row[] = display_placeholder_text($serData->vendor); 
+        $row[] = display_placeholder_text($serData->modelName); 
         $row[] = display_placeholder_text($serData->serialNumber); 
         $row[] = display_placeholder_text($serData->purchaseDate); 
         $row[] = display_placeholder_text($serData->contactNumber); 
-        $row[] = display_placeholder_text($serData->comment); 
+        $row[] = display_placeholder_text(substr($serData->faultdescription,6)); 
      
          $applyStatus = 1;
             $applyMsg = "";
@@ -217,6 +223,27 @@ class Service extends Common_Service_Controller{
             $result = $this->common_model->insertData('comments',$data_val);
             if($result){
                  $response = array('status'=>SUCCESS,'message'=>"comment added successfully.");
+            }else{
+                $response = array('status'=>FAIL,'message'=>ResponseMessages::getStatusCodeMessage(118)); 
+            }
+        }
+        $this->response($response);
+    }//endfunction
+ function internalserviceComment_post(){
+        $authCheck  = $this->check_service_auth();
+        $authToken  = $this->authData->authToken;
+        $userId     = $this->authData->id;
+        $this->form_validation->set_rules('notes', 'internal comment', 'trim|required');
+          if($this->form_validation->run() == FALSE){
+            $response = array('status' => FAIL, 'message' => strip_tags(validation_errors()));
+           
+        }else{
+            $data_val['notes']    = $this->post('notes');
+            $serviceId  = $this->post('serviceId');
+            
+            $result = $this->common_model->updateFields('service',$data_val,array('serviceId'=>$serviceId));
+            if($result){
+                 $response = array('status'=>SUCCESS,'message'=>"Internal comment added successfully.");
             }else{
                 $response = array('status'=>FAIL,'message'=>ResponseMessages::getStatusCodeMessage(118)); 
             }

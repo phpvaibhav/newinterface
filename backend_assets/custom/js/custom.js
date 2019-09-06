@@ -211,6 +211,12 @@ $(".alfaNumeric").on("keypress keyup blur",function (event) {
             contact : {
               required : true,
             
+            }, shippingAddress : {
+              required : true,
+            
+            },vatNumber : {
+              required : true,
+            
             },
             password : {
               required : true,
@@ -237,6 +243,10 @@ $(".alfaNumeric").on("keypress keyup blur",function (event) {
             },
             contact : {
               required : 'Please enter your contact number'
+            },shippingAddress : {
+              required : 'Please enter your shipping address'
+            },vatNumber : {
+              required : 'Please enter your vat number'
             },
             password : {
               required : 'Please enter your password'
@@ -442,6 +452,10 @@ $(".alfaNumeric").on("keypress keyup blur",function (event) {
             vendor : {
               required : true,
              
+            }, 
+            modelName : {
+              required : true,
+             
             },
             serialNumber : {
               required : true,
@@ -455,7 +469,7 @@ $(".alfaNumeric").on("keypress keyup blur",function (event) {
               required : true,
              
             },
-            comment : {
+            faultDescription : {
               required : true,
              
             },
@@ -470,20 +484,23 @@ $(".alfaNumeric").on("keypress keyup blur",function (event) {
               required : 'Please enter your product name'
             },
             vendor : {
-              required : 'Please enter your Vendor'
+              required : 'Please enter your manufacture'
+            }, 
+            modelName : {
+              required : 'Please enter your model name'
             },
             serialNumber : {
-              required : 'Please enter your product serial number',
+              required : 'Please enter your product series number',
            
             },
             purchaseDate : {
-              required : 'Please select your product purchase date'
+              required : 'Please select your product date of purchase'
             },
             contactNumber : {
               required : 'Please enter your contact number'
             },
-            comment : {
-              required : 'Please enter your comment'
+            faultDescription : {
+              required : 'Please enter your fault description'
             },
            
           },
@@ -692,6 +709,54 @@ $("#commentForm").validate({
                  success: function (res) {
                     preLoadshow(false);
                     setTimeout(function(){  $('#submit').prop('disabled', false); },4000);
+                  if(res.status=='success'){
+                   toastr.success(res.message, 'Success', {timeOut: 3000});
+                      setTimeout(function(){ location.reload(); },3000);
+                  
+                  }else{
+                    toastr.error(res.message, 'Alert!', {timeOut: 4000});
+                  }
+                  
+                  //  $('#submit').prop('disabled', false);  
+                 }
+             });
+             return false; // required to block normal submit since you used ajax
+         }
+
+   });
+$("#internalcommentForm").validate({
+         rules: {
+        notes: {
+          required: true,
+        } 
+      },
+      messages: {
+        notes:{
+               required: "Please enter notes.",
+        }
+      },
+      // Do not change code below
+          errorPlacement : function(error, element) {
+            error.insertAfter(element.parent());
+          },
+          // ajax 
+            submitHandler: function (form) {
+              toastr.clear();
+              $('#submit1').prop('disabled', true);
+            $.ajax({
+                 type: "POST",
+                 url: $(form).attr('action'),
+                  headers: { 'authToken': authToken },
+                 data: $(form).serialize(),
+                 dataType:'json',
+                  cache: false,
+           beforeSend: function() {
+                     preLoadshow(true);
+                    $('#submit1').prop('disabled', true);  
+                  },     
+                 success: function (res) {
+                    preLoadshow(false);
+                    setTimeout(function(){  $('#submit1').prop('disabled', false); },4000);
                   if(res.status=='success'){
                    toastr.success(res.message, 'Success', {timeOut: 3000});
                       setTimeout(function(){ location.reload(); },3000);

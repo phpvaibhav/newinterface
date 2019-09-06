@@ -149,6 +149,9 @@ class Users extends Common_Service_Controller{
                         $userData['fullName']           =   $fullName;
                         $userData['email']              =   $email;
                         $userData['contactNumber']      =   $this->post('contact');
+                            $userData['shippingAddress']      =   $this->post('shippingAddress');
+                $userData['vatNumber']      =   $this->post('vatNumber');
+                $userData['invoiceDetail']      =   $this->post('invoiceDetail');
                         //user info
                         // profile pic upload
                         $this->load->model('Image_model');

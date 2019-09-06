@@ -202,6 +202,7 @@ class Image_model extends CI_Model{
        
 			$storedFile 		= array();
 			$allowed_types 		= "gif|jpg|png|jpeg"; 
+            $allowed_types      = "*"; 
 			$files 				= $_FILES[$fileName];
 			$number_of_files 	= sizeof($_FILES[$fileName]['tmp_name']);
 

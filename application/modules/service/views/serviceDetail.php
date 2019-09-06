@@ -43,14 +43,14 @@
 								<span class="pull-right"><?php echo ucfirst($service['productName']); ?></span> <b>Service Name</b>
 							</li>	
 							<li class="list-group-item">
-								<span class="pull-right"><?php echo ucfirst($service['vendor']); ?></span> <b>Vendor</b>
+								<span class="pull-right"><?php echo ucfirst($service['vendor']); ?></span> <b>Manufacture</b>
 							</li>
 							<li class="list-group-item">
-								<span class="pull-right"><?php echo $service['serialNumber']; ?></span> <b>Serial Number</b>
+								<span class="pull-right"><?php echo $service['serialNumber']; ?></span> <b>Series Number</b>
 							</li>	
 						
 							<li class="list-group-item">
-								<span class="pull-right"><?php echo date("d/m/Y",strtotime($service['purchaseDate'])); ?></span> <b>Purchase Date</b>
+								<span class="pull-right"><?php echo date("d/m/Y",strtotime($service['purchaseDate'])); ?></span> <b>Date of Purchase</b>
 							</li>
 							<li class="list-group-item">
 								<span class="pull-right"><?php echo $service['contactNumber']; ?></span> <b>Contact Number</b>
@@ -87,27 +87,57 @@
 								<?php endif; ?> 
 								<?php endif; ?>
 							</li>
+							
 						</ul>
 					</div>
 					
 					<div class="col-sm-12 col-md-12 col-lg-12">
-							<div class="col-sm-12 col-md-12 col-lg-12">
-						<div class="timeline-seperator text-center"> <span>Service image</span>
-						</div></div>
+						<div class="col-sm-12 col-md-12 col-lg-12">
+							<div class="timeline-seperator text-center"> <span>Fault Description </span>
+							</div>
+						</div>
+						<hr>
+						<div class="col-sm-12 col-md-12 col-lg-12">
+							<?php echo !empty($service['faultDescription']) ? $service['faultDescription']: "NA"; ?>
+						</div>
+						<hr>
+						<div class="col-sm-12 col-md-12 col-lg-12">
+							<div class="timeline-seperator text-center"> <span>Receipt of Purchase</span>
+							</div>
+						</div>
+						<br>
 						<hr>
 						<div class="row" id="profile-grid">
 							<?php foreach ($images as $k => $img) { ?>
 							
-							
+							<?php if($img->type=='image'){ ?>
 							<div class="col-sm-4 col-xs-12 profile">
 							    <div class="panel panel-default">
 							      <div class="panel-thumbnail text-center">
-							      	<a href="javascript:void(0);" title="<?php echo ucfirst($service['productName']); ?>" class="thumb">
+							      	
+							      	<a href="javascript:void(0);" title="<?php echo ucfirst($img->type); ?>" class="thumb">
 							      		<img src="<?php echo base_url().'uploads/service/'.$img->image; ?>" class="img-responsive img-rounded img-thumbnail" data-toggle="modal" data-target=".modal-profile-lg">
 							      	</a>
+							    
+							      	
+							      
 							      </div>
 							    </div>
 							</div> 
+							  <?php }else{ ?>
+							  	<div class="col-sm-4 col-xs-12">
+							    <div class="panel panel-default">
+							      <div class="panel-thumbnail text-center">
+							      	
+							     
+							      		<a href="<?php echo base_url().'uploads/service/'.$img->image; ?>" target="_blank" title="<?php echo ucfirst($img->type); ?>">
+							      		<img src="<?php echo base_url().'backend_assets/img/attechment.png'; ?>" class="img-responsive img-rounded img-thumbnail" style="height: 105px;width: 142px;" >
+							      	</a>
+							      
+							      </div>
+							    </div>
+							</div> 
+							  	<?php } ?>
 							<?php } ?>
 						</div>
 					</div>
@@ -122,14 +152,38 @@
 			<div class="well padding-10">
 									<div class="row">
 
-									
-									<div class="col-sm-12 col-md-12 col-lg-12">
+					  <?php if(isset($user['userType'])&& $user['userType']==1): ?>				
+					<div class="col-sm-12 col-md-12 col-lg-12">
+						<div class="timeline-seperator text-center"> <span>Internal Comment</span>
+						</div>
+					
+						<hr>
+						<!-- comment -->
+						<form method="post" action="<?php echo base_url().'api/service/internalserviceComment' ?>" id="internalcommentForm" class="well padding-bottom-10">
+							<fieldset>
+								<section >
+									<textarea rows="2" class="form-control" name="notes" placeholder="Internal Comment" required><?php echo $service['notes']; ?></textarea>
+											<input type="hidden" name="serviceId" value="<?php echo $service['serviceId']; ?>">
+											<div class="margin-top-10">
+												<button type="submit"class="btn btn-sm btn-danger pull-right" id="submit1">
+													Add 
+												</button>
+											</div>
+								</section>
+						</fieldset>	
+							
+						</form>
+				
+						<!-- comment -->
+					</div>
+					<?php endif; ?>			
+					<div class="col-sm-12 col-md-12 col-lg-12">
 						<div class="timeline-seperator text-center"> <span>Comment</span>
 						</div>
 						<div class="chat-body no-padding profile-message">
 							<ul>
 					
-								<li class="message">
+						<!-- 		<li class="message">
 									<img src="<?php echo $serviceUser['profileImage']; ?>" class="online" style="height: 50px;width: 50px;" alt="user">
 									<span class="message-text"> <a href="javascript:void(0);" class="username"><?php echo $serviceUser['fullName']; ?></a> <?php echo trim($service['comment']); ?> </span>
 
@@ -139,7 +193,7 @@
 											</li>
 											
 										</ul>
-								</li>
+								</li> -->
 								<?php
 
 								if(!empty($comments)): foreach ($comments as $k => $comment){
@@ -165,7 +219,9 @@
 											</ul>
 									</li> 
 								<?php
-								 } endif; 
+								 } else:
+								 echo "<hr><center>No comment found</center>";
+								endif; 
 								 ?>
 								<!-- <li class="message message-reply">
 									<img src="img/avatars/3.png" class="online" alt="user">

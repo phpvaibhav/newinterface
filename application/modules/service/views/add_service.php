@@ -20,21 +20,27 @@
 						</label>
 				</section>
 				<section>
-					 <label class="label">Vendor<span class="error">*</span></label>
+					 <label class="label">Manufacture<span class="error">*</span></label>
 					<label class="input">
-						<input type="text" name="vendor" placeholder="Vendor" placeholder="Vendor" maxlength="50" size="50" >
+						<input type="text" name="vendor" placeholder="Manufacture" maxlength="50" size="50" >
 						</label>
 				</section>
 				<section>
-					 <label class="label">Serial Number<span class="error">*</span></label>
+					 <label class="label">Model name<span class="error">*</span></label>
 					<label class="input">
-						<input type="text" name="serialNumber" placeholder="Serial Number" maxlength="50" size="50" class="alfaNumeric">
+						<input type="text" name="modelName" placeholder="Model name" maxlength="50" size="50" >
 						</label>
 				</section>
 				<section>
-					 <label class="label">Purchase Date<span class="error">*</span></label>
+					 <label class="label">Series Number<span class="error">*</span></label>
 					<label class="input">
-						<input type="text" id="purchaseDate" name="purchaseDate" placeholder="Purchase Date"
+						<input type="text" name="serialNumber" placeholder="Series Number" maxlength="50" size="50" class="alfaNumeric">
+						</label>
+				</section>
+				<section>
+					 <label class="label">Date of Purchase<span class="error">*</span></label>
+					<label class="input">
+						<input type="text" id="purchaseDate" name="purchaseDate" placeholder="Date of Purchase"
 						class="datepicker purchaseDate" readonly>
 						</label>
 				</section>
@@ -45,19 +51,20 @@
 						</label>
 				</section>
 				<section>
-					<label class="label">Comment<span class="error">*</span></label>
-					<label class="textarea">
-						<textarea name="comment" placeholder="Comment" maxlength="700"></textarea>
-						</label>
-				</section>
-
-				<section>
-				<!-- <label class="label">Image</label> -->
+				<label class="label">Receipt of Purchase</label>
 				<div class="input input-file">
-				<span class="button"><input type="file" name="serviceImage[]" id="file" onchange="if(this.files.length > 3){ this.value = ''; alert('You can select only 3 images');}else{this.parentNode.nextSibling.value = this.files.length+' Files'}" accept="image/*" size="10" multiple="multiple">Browse</span><input type="text" readonly="">
+				<span class="button"><input type="file" name="serviceImage[]" id="file" onchange="if(this.files.length > 4){ this.value = ''; alert('You can select only 4 receipt');}else{this.parentNode.nextSibling.value = this.files.length+' Files'}" accept="image/*,application/pdf, application/vnd.ms-excel,application/msword,text/plain, application/pdf" size="10" multiple="multiple">Browse</span><input type="text" readonly="">
 				</div>
 				
 				</section>
+				<section>
+					<label class="label">Fault Description<span class="error">*</span></label>
+					<label class="textarea">
+						<textarea name="faultDescription" placeholder="Fault Description" maxlength="700"></textarea>
+						</label>
+				</section>
+
+				
 			</fieldset>
 			<footer>
 				<button type="submit" id="submit" class="btn btn-primary">

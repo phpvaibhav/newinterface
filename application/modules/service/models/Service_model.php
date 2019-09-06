@@ -6,7 +6,7 @@ class Service_model extends CI_Model {
     //var $table , $column_order, $column_search , $order =  '';
     var $table = 'service';
     var $column_order = array('s.serviceId','s.productName','s.vendor','s.serialNumber','s.purchaseDate','s.contactNumber','s.comment','s.status'); //set column field database for datatable orderable
-    var $column_sel = array('s.serviceId','s.productName','s.vendor','s.serialNumber','s.purchaseDate','s.contactNumber','s.comment','s.status','(case when (s.status = 0) 
+    var $column_sel = array('s.serviceId','s.productName','s.vendor','s.serialNumber','s.modelName','s.purchaseDate','s.contactNumber','s.faultdescription','s.status','(case when (s.status = 0) 
         THEN "Pending" when (s.status = 1) 
         THEN "In Progress" when (s.status = 2) 
         THEN "Complete" ELSE

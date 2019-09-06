@@ -47,11 +47,12 @@
 									<tr>
 										<th data-hide="phone">ID</th>
 										<th data-class="expand">Product Name</th>
-										<th data-hide="phone">Vendor</th>
-										<th data-hide="phone,tablet">Serial Number</th>
-										<th data-hide="phone,tablet">Date</th>
+										<th data-hide="phone">Manufacture</th>
+										<th data-hide="phone">Model Name</th>
+										<th data-hide="phone,tablet">Series Number</th>
+										<th data-hide="phone,tablet">Date of Purchase</th>
 										<th data-hide="phone,tablet">Contact Number</th>
-										<th>Comment</th>
+										<th>Fault Description</th>
 										<th data-hide="phone,tablet">Status</th>
 										<th data-hide="phone,tablet">Action</th>
 										
