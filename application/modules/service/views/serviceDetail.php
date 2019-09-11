@@ -116,7 +116,7 @@
 							      <div class="panel-thumbnail text-center">
 							      	
 							      	<a href="javascript:void(0);" title="<?php echo ucfirst($img->type); ?>" class="thumb">
-							      		<img src="<?php echo base_url().'uploads/service/'.$img->image; ?>" class="img-responsive img-rounded img-thumbnail" data-toggle="modal" data-target=".modal-profile-lg">
+							      		<img src="<?php echo base_url().'uploads/service/'.$img->image; ?>" class="img-responsive img-rounded img-thumbnail" data-toggle="modal" data-target=".modal-profile-lg" style="height: 105px;width: 142px;">
 							      	</a>
 							    
 							      	
@@ -128,10 +128,32 @@
 							  	<div class="col-sm-4 col-xs-12">
 							    <div class="panel panel-default">
 							      <div class="panel-thumbnail text-center">
-							      	
+							      	<?php
+							      			$file_ext = pathinfo(base_url().'uploads/service/'.$img->image, PATHINFO_EXTENSION);
+							      			switch ($file_ext) {
+							      				case 'pdf':
+							      					$urlset = base_url().'backend_assets/img/attechment/pdfdownload.png';
+							      					break;
+							      				case 'xls':
+							      					$urlset = base_url().'backend_assets/img/attechment/xlsdownload.png';
+							      					break;
+							      				case 'xlm':
+							      					$urlset = base_url().'backend_assets/img/attechment/xlsdownload.png';
+							      					break;
+							      				case 'doc':
+							      					$urlset = base_url().'backend_assets/img/attechment/docdownload.png';
+							      					break;
+							      				
+							      				default:
+							      					$urlset = base_url().'backend_assets/img/attechment/attechment.jpeg';
+							      					break;
+							      			}
+							      			
+
+							      	 ?>
 							     
 							      		<a href="<?php echo base_url().'uploads/service/'.$img->image; ?>" target="_blank" title="<?php echo ucfirst($img->type); ?>">
-							      		<img src="<?php echo base_url().'backend_assets/img/attechment.png'; ?>" class="img-responsive img-rounded img-thumbnail" style="height: 105px;width: 142px;" >
+							      		<img src="<?php echo $urlset; ?>" class="img-responsive img-rounded img-thumbnail" style="height: 105px;width: 142px;" >
 							      	</a>
 							      
 							      </div>
