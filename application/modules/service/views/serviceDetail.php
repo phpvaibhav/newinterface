@@ -116,7 +116,7 @@
 							      <div class="panel-thumbnail text-center">
 							      	
 							      	<a href="javascript:void(0);" title="<?php echo ucfirst($img->type); ?>" class="thumb">
-							      		<img src="<?php echo base_url().'uploads/service/'.$img->image; ?>" class="img-responsive img-rounded img-thumbnail" data-toggle="modal" data-target=".modal-profile-lg" style="height: 105px;width: 142px;">
+							      		<img src="<?php echo base_url().'uploads/service/'.$img->image; ?>" class="img-responsive img-rounded img-thumbnail" data-toggle="modal" data-target=".modal-profile-lg">
 							      	</a>
 							    
 							      	
@@ -153,7 +153,7 @@
 							      	 ?>
 							     
 							      		<a href="<?php echo base_url().'uploads/service/'.$img->image; ?>" target="_blank" title="<?php echo ucfirst($img->type); ?>">
-							      		<img src="<?php echo $urlset; ?>" class="img-responsive img-rounded img-thumbnail" style="height: 105px;width: 142px;" >
+							      		<img src="<?php echo $urlset; ?>" class="img-responsive img-rounded img-thumbnail" style="height: 114.73px;width: 141.66px;" >
 							      	</a>
 							      
 							      </div>
